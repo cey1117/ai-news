@@ -1,0 +1,38 @@
+docs/archive.json
+  s_adf5ba9af35405::t_edd59bd39bbc8d 1
+docs/2026-09-10/index.html
+  s_adf5ba9af35405::t_edd59bd39bbc8d 1-362
+docs/index.html
+  s_adf5ba9af35405::t_edd59bd39bbc8d 6,8-16,18,20-24,26-41,43-46,50-52,54-67,69-98,102-124,126-200,206-207,209-217,219-231,233-277,279-336,339-348,350-355,357-362,364-366
+src/llm.js
+  s_adf5ba9af35405::t_57490e0ec330bd 110-117
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "4d04e2a2ca09c4316453c31642a4570cfccc06f9",
+  "prompts": {},
+  "sessions": {
+    "s_adf5ba9af35405": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6aa203808bac318d048f5d3a",
+        "model": "deepseek-V4-Pro__max"
+      },
+      "human_author": "chenlong <chenlongcl.chen@huawei.com>",
+      "custom_attributes": {
+        "runtime_client": "trae-tob-git-ai",
+        "external_session_id": "6aa203808bac318d048f5d3a",
+        "dedupe_key": "6aa203808bac318d048f5d3a:6aa21afe8bac318d048f5fd9:afterEdit:865d9b18",
+        "client_type": "ide",
+        "operation_id": "6aa21afe8bac318d048f5fd9",
+        "tool_type": "agent",
+        "tool_use_id": "6aa21afe8bac318d048f5fd9",
+        "tool_id": "Edit",
+        "edit_kind": "file_edit",
+        "session_id": "6aa203808bac318d048f5d3a",
+        "source_scene": "unknown"
+      }
+    }
+  }
+}
