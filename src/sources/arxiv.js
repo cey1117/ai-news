@@ -29,7 +29,7 @@ export async function fetchArxiv() {
   const results = [];
 
   for (const query of ARXIV_QUERIES) {
-    const url = `http://export.arxiv.org/api/query?search_query=all:${encodeURIComponent(query)}&sortBy=submittedDate&sortOrder=descending&max_results=${MAX_ITEMS_PER_SOURCE}`;
+    const url = `https://export.arxiv.org/api/query?search_query=all:${encodeURIComponent(query)}&sortBy=submittedDate&sortOrder=descending&max_results=${MAX_ITEMS_PER_SOURCE}`;
 
     try {
       const response = await fetch(url);

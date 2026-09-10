@@ -1,17 +1,13 @@
 const CATEGORY_META = {
-  "用例生成":    { icon: "🧪", color: "#7c3aed", desc: "AI 生成的测试用例与脚本" },
-  "漏洞分析":    { icon: "🐛", color: "#dc2626", desc: "AI 漏洞检测与缺陷预测" },
-  "程序分析":    { icon: "🔍", color: "#2563eb", desc: "AI 静态/动态程序分析" },
-  "安全扫描":    { icon: "🛡️", color: "#ea580c", desc: "AI 安全测试与漏洞扫描" },
-  "缺陷定位":    { icon: "🎯", color: "#c026d3", desc: "AI 故障定位与根因分析" },
-  "测试框架":    { icon: "🏗️", color: "#0891b2", desc: "AI 测试框架与自动化平台" },
-  "测试工程":    { icon: "⚙️", color: "#4f46e5", desc: "AI 测试工程化与 CI/CD" },
-  "测试流程":    { icon: "📋", color: "#059669", desc: "AI 测试管理与流程优化" },
-  "测试治理":    { icon: "📊", color: "#d97706", desc: "AI 测试策略与质量保障" },
-  "模糊测试":    { icon: "💥", color: "#b91c1c", desc: "AI 驱动的 Fuzzing" },
-  "内核测试":    { icon: "🖥️", color: "#1e40af", desc: "AI 内核与系统测试" },
-  "测试验证":    { icon: "✅", color: "#15803d", desc: "AI 辅助验证与形式化验证" },
-  "业界研究":    { icon: "📖", color: "#6366f1", desc: "行业报告与白皮书" },
+  "用例生成":        { icon: "🧪", color: "#7c3aed", desc: "AI 生成测试用例、测试脚本" },
+  "安全测试":        { icon: "🛡️", color: "#dc2626", desc: "AI 漏洞检测、渗透测试、安全扫描" },
+  "程序分析":        { icon: "🔍", color: "#2563eb", desc: "AI 静态/动态分析、故障定位、根因分析" },
+  "测试框架与工程":   { icon: "🏗️", color: "#0891b2", desc: "AI 测试框架、自动化平台、CI/CD" },
+  "测试流程与治理":   { icon: "📊", color: "#059669", desc: "AI 测试管理、流程优化、质量保障" },
+  "模糊测试":        { icon: "💥", color: "#b91c1c", desc: "AI 驱动的 Fuzzing" },
+  "内核测试":        { icon: "🖥️", color: "#1e40af", desc: "AI 内核与系统测试" },
+  "测试验证":        { icon: "✅", color: "#15803d", desc: "AI 辅助验证、形式化验证" },
+  "业界研究":        { icon: "📖", color: "#6366f1", desc: "行业报告、白皮书、技术趋势" },
 };
 
 const SOURCE_NAMES = {
@@ -19,6 +15,8 @@ const SOURCE_NAMES = {
   arxiv: "arXiv",
   reddit: "Reddit",
   scholar: "Semantic Scholar",
+  paperswithcode: "Papers With Code",
+  github: "GitHub",
 };
 
 function scoreBadge(score) {
@@ -513,14 +511,14 @@ export function renderDailyPage(items, date, llmProcessed = false) {
         <a href="../">← 返回首页</a><br><br>
         生成时间 (UTC+8)<br>${utc8}<br><br>
         ${statusTag}<br><br>
-        数据来源<br>Google News · arXiv<br>Reddit · Semantic Scholar<br><br>
+        数据来源<br>arXiv · Semantic Scholar<br>Papers With Code · GitHub<br><br>
         <a href="https://github.com/${process.env.GITHUB_REPOSITORY || "cey1117/ai-news"}">GitHub</a>
       </div>
     </aside>
     <main class="main">
       <div class="main-header">
         <h1>AI + 软件测试 每日资讯</h1>
-        <p class="subtitle">聚合 AI 驱动的用例生成、漏洞分析、程序分析、安全扫描、缺陷定位、测试框架、测试工程等领域最新动态</p>
+        <p class="subtitle">聚合 AI 驱动的用例生成、安全测试、程序分析、测试框架与工程、测试流程与治理、模糊测试、内核测试、测试验证、业界研究等领域最新动态</p>
         <div class="update-time">📅 ${dateStr} ${timeStr} · 共 ${items.length} 条</div>
       </div>
       ${featuredHTML}
@@ -569,14 +567,14 @@ export function renderIndexPage(items, date, archiveDates, llmProcessed = false)
       <div class="sidebar-footer">
         生成时间 (UTC+8)<br>${utc8}<br><br>
         ${statusTag}<br><br>
-        数据来源<br>Google News · arXiv<br>Reddit · Semantic Scholar<br><br>
+        数据来源<br>arXiv · Semantic Scholar<br>Papers With Code · GitHub<br><br>
         <a href="https://github.com/${process.env.GITHUB_REPOSITORY || "cey1117/ai-news"}">GitHub</a>
       </div>
     </aside>
     <main class="main">
       <div class="main-header">
         <h1>AI + 软件测试 每日资讯</h1>
-        <p class="subtitle">聚合 AI 驱动的用例生成、漏洞分析、程序分析、安全扫描、缺陷定位、测试框架、测试工程等领域最新动态</p>
+        <p class="subtitle">聚合 AI 驱动的用例生成、安全测试、程序分析、测试框架与工程、测试流程与治理、模糊测试、内核测试、测试验证、业界研究等领域最新动态</p>
         <div class="update-time">📅 ${dateStr} ${timeStr} · 共 ${items.length} 条</div>
       </div>
       ${featuredHTML}

@@ -2,6 +2,8 @@ import { fetchGoogleNews } from "./sources/google-news.js";
 import { fetchArxiv } from "./sources/arxiv.js";
 import { fetchReddit } from "./sources/reddit.js";
 import { fetchSemanticScholar } from "./sources/semantic-scholar.js";
+import { fetchPapersWithCode } from "./sources/papers-with-code.js";
+import { fetchGitHubTrending } from "./sources/github-trending.js";
 import { summarizeWithLLM } from "./llm.js";
 import { renderDailyPage, renderIndexPage } from "./template.js";
 import { readFile, writeFile, mkdir, readdir } from "fs/promises";
@@ -15,14 +17,16 @@ async function main() {
 
   // 1. 并行抓取所有信息源
   console.log("[1/5] 抓取信息源...");
-  const [googleItems, arxivItems, redditItems, scholarItems] = await Promise.all([
+  const [googleItems, arxivItems, redditItems, scholarItems, pwcItems, githubItems] = await Promise.all([
     fetchGoogleNews(),
     fetchArxiv(),
     fetchReddit(),
     fetchSemanticScholar(),
+    fetchPapersWithCode(),
+    fetchGitHubTrending(),
   ]);
 
-  const allItems = [...googleItems, ...arxivItems, ...redditItems, ...scholarItems];
+  const allItems = [...googleItems, ...arxivItems, ...redditItems, ...scholarItems, ...pwcItems, ...githubItems];
   console.log(`\n总计抓取 ${allItems.length} 条原始条目\n`);
 
   let summarized;

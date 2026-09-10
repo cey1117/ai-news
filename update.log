@@ -1,0 +1,68 @@
+=== 2026-09-10 12:00:01 开始更新 ===
+Already up to date.
+
+> ai-news@1.0.0 fetch
+> node src/index.js
+
+=== AI + 测试 每日资讯聚合 ===
+
+[1/5] 抓取信息源...
+[Google News] 抓取失败 (AI test case generation): fetch failed
+[Reddit] 抓取失败 (r/softwaretesting): fetch failed
+[Google News] 抓取失败 (LLM test generation software): fetch failed
+[Reddit] 抓取失败 (r/MachineLearning): fetch failed
+[Google News] 抓取失败 (machine learning test case design): fetch failed
+[Reddit] 抓取失败 (r/QualityAssurance): fetch failed
+[Google News] 抓取失败 (AI vulnerability detection software): fetch failed
+[Reddit] 抓取失败 (r/testing): fetch failed
+[Reddit] 抓取到 0 条
+[Google News] 抓取失败 (AI bug detection testing): fetch failed
+[Google News] 抓取失败 (AI program analysis testing): fetch failed
+[Google News] 抓取失败 (AI code analysis software testing): fetch failed
+[Google News] 抓取失败 (AI static analysis testing): fetch failed
+[Google News] 抓取失败 (AI security testing scanning): fetch failed
+[Google News] 抓取失败 (AI security vulnerability testing): fetch failed
+[Google News] 抓取失败 (AI penetration testing): fetch failed
+[Google News] 抓取失败 (AI defect localization): fetch failed
+[Google News] 抓取失败 (AI fault localization testing): fetch failed
+[Google News] 抓取失败 (AI bug prediction testing): fetch failed
+[Google News] 抓取失败 (AI testing framework): fetch failed
+[Google News] 抓取失败 (AI test automation framework): fetch failed
+[Google News] 抓取失败 (AI testing tools platform): fetch failed
+[Google News] 抓取失败 (AI software testing engineering): fetch failed
+[Google News] 抓取失败 (AI test management): fetch failed
+[Google News] 抓取失败 (AI test process optimization): fetch failed
+[Google News] 抓取失败 (AI quality assurance testing): fetch failed
+[Google News] 抓取失败 (AI test governance): fetch failed
+[Google News] 抓取失败 (AI fuzzing testing): fetch failed
+[Google News] 抓取失败 (AI fuzz testing software): fetch failed
+[Google News] 抓取失败 (neural network fuzzing): fetch failed
+[Google News] 抓取失败 (AI kernel testing Linux): fetch failed
+[Google News] 抓取失败 (AI operating system testing): fetch failed
+[Google News] 抓取失败 (AI system testing verification): fetch failed
+[Google News] 抓取失败 (AI software testing research): fetch failed
+[Google News] 抓取失败 (AI testing verification validation): fetch failed
+[Google News] 抓取失败 (AI driven software quality): fetch failed
+[Google News] 抓取到 0 条
+[Semantic Scholar] 抓取到 0 条
+[arXiv] 抓取到 0 条
+
+总计抓取 0 条原始条目
+
+未抓取到任何内容，生成空页面。
+[3/5] 生成页面...
+  归档: docs/2026-09-10/index.html
+[4/5] 更新归档清单...
+[5/5] 生成首页...
+
+完成！首页: /index.html    归档: /2026-09-10/index.html
+[main 8c07f39] chore: auto update 2026-09-10 12:00
+ 3 files changed, 737 insertions(+), 1435 deletions(-)
+ rewrite docs/2026-09-10/index.html (75%)
+ rewrite docs/index.html (74%)
+To https://github.com/cey1117/ai-news.git
+   a3a507c..8c07f39  main -> main
+1/12 (0) [0]2/12 (1) [0]3/12 (2) [0]4/12 (3) [0]5/12 (4) [0]6/12 (5) [0]7/12 (6) [0]8/12 (7) [0]9/12 (8) [0]10/12 (9) [0]11/12 (10) [0]12/12 (11) [0]To https://github.com/cey1117/ai-news.git
+   697fd1d..abd6c60  abd6c60d9aa7ce992385f05c12a3b51799e2c3ae -> gh-pages
+已推送到 GitHub Pages
+=== 更新完成 ===
