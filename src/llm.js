@@ -107,6 +107,13 @@ export async function summarizeWithLLM(rawItems) {
     max_tokens: 16384,
   });
 
-  const text = response.choices[0].message.content.trim();
+  // 兼容推理模型（输出在 reasoning_content）和普通模型（输出在 content）
+  const msg = response.choices[0].message;
+  let text = (msg.content || msg.reasoning_content || "").trim();
+
+  // 如果模型把 JSON 包在 markdown 代码块里，提取出来
+  const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
+  if (jsonMatch) text = jsonMatch[1].trim();
+
   return JSON.parse(text);
 }
