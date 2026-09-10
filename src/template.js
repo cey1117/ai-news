@@ -11,12 +11,14 @@ const CATEGORY_META = {
   "模糊测试":    { icon: "💥", color: "#b91c1c", desc: "AI 驱动的 Fuzzing 与模糊测试" },
   "内核测试":    { icon: "🖥️", color: "#1e40af", desc: "AI 在内核与系统测试中的应用" },
   "测试验证":    { icon: "✅", color: "#15803d", desc: "AI 辅助测试验证与形式化验证" },
+  "业界研究":    { icon: "📖", color: "#6366f1", desc: "AI+测试 行业研究报告与白皮书" },
 };
 
 const SOURCE_NAMES = {
   google: "Google News",
   arxiv: "arXiv",
   reddit: "Reddit",
+  scholar: "Semantic Scholar",
 };
 
 function scoreBadge(score) {
@@ -54,16 +56,10 @@ function renderCategorySection(cat, items) {
     </section>`;
 }
 
-/**
- * 生成最终 HTML 页面
- * @param {Array} items - LLM 整理后的条目（已含 score、category、summary）
- * @param {Date} date - 生成时间
- */
-export function renderHTML(items, date) {
-  const dateStr = date.toLocaleDateString("zh-CN", {
-    year: "numeric", month: "long", day: "numeric", weekday: "long",
-  });
-  const timeStr = date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" });
+function buildContentBlocks(items) {
+  if (items.length === 0) {
+    return `<div class="empty">暂无内容，请稍后再来查看。</div>`;
+  }
 
   // 按 category 分组
   const grouped = {};
@@ -87,6 +83,12 @@ export function renderHTML(items, date) {
 
   const sectionsHTML = catOrder.map((cat) => renderCategorySection(cat, grouped[cat])).join("");
 
+  const catTags = catOrder.map((cat) => {
+    const meta = CATEGORY_META[cat] || { icon: "", color: "#666" };
+    return `<a href="#cat-${escapeHTML(cat)}" class="nav-tag">${meta.icon} ${escapeHTML(cat)}</a>`;
+  }).join("");
+
+  // 精选 top 3
   const topItems = items.filter((i) => (i.score || 0) >= 8).slice(0, 3);
   const featuredHTML = topItems.length > 0 ? `
     <section class="featured">
@@ -107,18 +109,44 @@ export function renderHTML(items, date) {
     </section>
   ` : "";
 
-  const catTags = catOrder.map((cat) => {
-    const meta = CATEGORY_META[cat] || { icon: "", color: "#666" };
-    return `<a href="#cat-${escapeHTML(cat)}" class="nav-tag">${meta.icon} ${escapeHTML(cat)}</a>`;
+  return { catTags, featuredHTML, sectionsHTML };
+}
+
+// ====== 日期选择器 ======
+function renderDatePicker(dates, currentDate) {
+  if (!dates || dates.length === 0) return "";
+  const current = formatDateStr(currentDate);
+  const options = dates.map((d) => {
+    const label = formatDisplayDate(d.date);
+    const selected = d.date === current ? " selected" : "";
+    const href = d.date === current ? "./" : `${d.date}/`;
+    return `<option value="${href}"${selected}>${label} (${d.count}条)</option>`;
   }).join("");
 
-  return `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI + 软件测试 每日资讯</title>
-  <style>
+  return `
+    <div class="date-picker">
+      <label>📅 选择日期：</label>
+      <select onchange="location=this.value">
+        <option value="./">最新</option>
+        ${options}
+      </select>
+    </div>`;
+}
+
+function formatDateStr(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+function formatDisplayDate(dateStr) {
+  const [y, m, d] = dateStr.split("-");
+  return `${y}年${parseInt(m)}月${parseInt(d)}日`;
+}
+
+// ====== 公共样式 ======
+const BASE_CSS = `
     :root {
       --bg: #f8fafc;
       --card-bg: #ffffff;
@@ -137,7 +165,6 @@ export function renderHTML(items, date) {
     }
     .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
 
-    /* Header */
     header {
       text-align: center;
       padding: 48px 0 24px;
@@ -168,7 +195,25 @@ export function renderHTML(items, date) {
       color: var(--text-secondary);
     }
 
-    /* Navigation */
+    .date-picker {
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .date-picker select {
+      margin-left: 8px;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      background: var(--card-bg);
+      color: var(--text);
+      cursor: pointer;
+      outline: none;
+    }
+    .date-picker select:focus { border-color: var(--accent); }
+
     .nav {
       display: flex;
       flex-wrap: wrap;
@@ -189,7 +234,6 @@ export function renderHTML(items, date) {
     }
     .nav-tag:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* Section Title */
     .section-title {
       font-size: 20px;
       font-weight: 700;
@@ -199,7 +243,6 @@ export function renderHTML(items, date) {
       display: inline-block;
     }
 
-    /* Featured */
     .featured { margin-bottom: 40px; }
     .featured-grid {
       display: grid;
@@ -258,7 +301,6 @@ export function renderHTML(items, date) {
       color: #94a3b8;
     }
 
-    /* Category Section */
     .category-section {
       margin-bottom: 40px;
       scroll-margin-top: 20px;
@@ -287,7 +329,6 @@ export function renderHTML(items, date) {
       color: var(--text-secondary);
     }
 
-    /* Item Grid */
     .item-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -331,7 +372,6 @@ export function renderHTML(items, date) {
       line-height: 1.5;
     }
 
-    /* Score Badge */
     .score {
       display: inline-block;
       padding: 1px 8px;
@@ -343,10 +383,8 @@ export function renderHTML(items, date) {
     .score-mid  { background: #fef3c7; color: #b45309; }
     .score-low  { background: #f1f5f9; color: #64748b; }
 
-    /* Empty */
     .empty { text-align: center; padding: 80px 0; color: #94a3b8; font-size: 16px; }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 40px 0;
@@ -360,8 +398,23 @@ export function renderHTML(items, date) {
     @media (max-width: 640px) {
       header h1 { font-size: 24px; }
       .featured-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+    }`;
+
+// ====== 日归档页面（不含日期选择器） ======
+export function renderDailyPage(items, date) {
+  const dateStr = date.toLocaleDateString("zh-CN", {
+    year: "numeric", month: "long", day: "numeric", weekday: "long",
+  });
+  const timeStr = date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" });
+  const { catTags, featuredHTML, sectionsHTML } = buildContentBlocks(items);
+
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${dateStr} - AI + 软件测试 每日资讯</title>
+  <style>${BASE_CSS}</style>
 </head>
 <body>
   <div class="container">
@@ -372,15 +425,52 @@ export function renderHTML(items, date) {
     </header>
 
     ${catTags ? `<nav class="nav">${catTags}</nav>` : ""}
-
     ${featuredHTML}
-
-    ${items.length === 0 ? `<div class="empty">暂无内容，请稍后再来查看。</div>` : ""}
-
     ${sectionsHTML}
 
     <footer>
-      数据来源: Google News · arXiv · Reddit |
+      <a href="../">← 返回首页</a> &nbsp;|&nbsp;
+      数据来源: Google News · arXiv · Reddit · Semantic Scholar |
+      由大模型自动整理 ·
+      <a href="https://github.com/${process.env.GITHUB_REPOSITORY || "cey1117/ai-news"}">GitHub</a>
+    </footer>
+  </div>
+</body>
+</html>`;
+}
+
+// ====== 首页（含日期选择器 + 最新内容） ======
+export function renderIndexPage(items, date, archiveDates) {
+  const dateStr = date.toLocaleDateString("zh-CN", {
+    year: "numeric", month: "long", day: "numeric", weekday: "long",
+  });
+  const timeStr = date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" });
+  const { catTags, featuredHTML, sectionsHTML } = buildContentBlocks(items);
+
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI + 软件测试 每日资讯</title>
+  <style>${BASE_CSS}</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AI + 软件测试 每日资讯</h1>
+      <p class="subtitle">聚合 AI 驱动的用例生成、漏洞分析、程序分析、安全扫描、缺陷定位、测试框架、测试工程等领域最新动态</p>
+      <div class="update-time">📅 ${dateStr} ${timeStr} · 共 ${items.length} 条</div>
+    </header>
+
+    ${renderDatePicker(archiveDates, date)}
+
+    ${catTags ? `<nav class="nav">${catTags}</nav>` : ""}
+    ${featuredHTML}
+    ${sectionsHTML}
+
+    <footer>
+      数据来源: Google News · arXiv · Reddit · Semantic Scholar |
       由大模型自动整理 ·
       <a href="https://github.com/${process.env.GITHUB_REPOSITORY || "cey1117/ai-news"}">GitHub</a>
     </footer>
