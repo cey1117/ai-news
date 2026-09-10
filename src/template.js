@@ -142,6 +142,12 @@ function formatDateStr(d) {
   return `${y}-${m}-${day}`;
 }
 
+function formatUTC8(d) {
+  // 转换为 UTC+8
+  const utc8 = new Date(d.getTime() + 8 * 60 * 60 * 1000);
+  return utc8.toISOString().replace("T", " ").slice(0, 19);
+}
+
 function formatDisplayDate(dateStr) {
   const [y, m, d] = dateStr.split("-");
   return `${y}年${parseInt(m)}月${parseInt(d)}日`;
@@ -472,12 +478,16 @@ const BASE_CSS = `
       .mobile-toggle { display: none; }
     }`;
 
-export function renderDailyPage(items, date) {
+export function renderDailyPage(items, date, llmProcessed = false) {
   const dateStr = date.toLocaleDateString("zh-CN", {
     year: "numeric", month: "long", day: "numeric", weekday: "long",
   });
   const timeStr = date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" });
+  const utc8 = formatUTC8(date);
   const { catNav, featuredHTML, sectionsHTML } = buildContentBlocks(items);
+  const statusTag = llmProcessed
+    ? '<span class="status-ok">AI 整理</span>'
+    : '<span class="status-err">未AI处理</span>';
 
   return `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -501,8 +511,9 @@ export function renderDailyPage(items, date) {
       <nav class="side-nav">${catNav}</nav>
       <div class="sidebar-footer">
         <a href="../">← 返回首页</a><br><br>
+        生成时间 (UTC+8)<br>${utc8}<br><br>
+        ${statusTag}<br><br>
         数据来源<br>Google News · arXiv<br>Reddit · Semantic Scholar<br><br>
-        由大模型自动整理<br>
         <a href="https://github.com/${process.env.GITHUB_REPOSITORY || "cey1117/ai-news"}">GitHub</a>
       </div>
     </aside>
@@ -520,12 +531,16 @@ export function renderDailyPage(items, date) {
 </html>`;
 }
 
-export function renderIndexPage(items, date, archiveDates) {
+export function renderIndexPage(items, date, archiveDates, llmProcessed = false) {
   const dateStr = date.toLocaleDateString("zh-CN", {
     year: "numeric", month: "long", day: "numeric", weekday: "long",
   });
   const timeStr = date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" });
+  const utc8 = formatUTC8(date);
   const { catNav, featuredHTML, sectionsHTML } = buildContentBlocks(items);
+  const statusTag = llmProcessed
+    ? '<span class="status-ok">AI 整理</span>'
+    : '<span class="status-err">未AI处理</span>';
 
   return `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -533,7 +548,10 @@ export function renderIndexPage(items, date, archiveDates) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI + 软件测试 每日资讯</title>
-  <style>${BASE_CSS}</style>
+  <style>${BASE_CSS}
+    .status-ok { display:inline-block;padding:2px 10px;border-radius:8px;background:#dcfce7;color:#15803d;font-size:11px;font-weight:700; }
+    .status-err { display:inline-block;padding:2px 10px;border-radius:8px;background:#fef3c7;color:#b45309;font-size:11px;font-weight:700; }
+  </style>
   <script>
     function setActive(el) {
       document.querySelectorAll('.side-nav-item').forEach(i => i.classList.remove('active'));
@@ -549,8 +567,9 @@ export function renderIndexPage(items, date, archiveDates) {
       <div class="side-nav-label">📂 分类导航</div>
       <nav class="side-nav">${catNav}</nav>
       <div class="sidebar-footer">
+        生成时间 (UTC+8)<br>${utc8}<br><br>
+        ${statusTag}<br><br>
         数据来源<br>Google News · arXiv<br>Reddit · Semantic Scholar<br><br>
-        由大模型自动整理<br>
         <a href="https://github.com/${process.env.GITHUB_REPOSITORY || "cey1117/ai-news"}">GitHub</a>
       </div>
     </aside>

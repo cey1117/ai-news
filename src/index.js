@@ -26,6 +26,7 @@ async function main() {
   console.log(`\n总计抓取 ${allItems.length} 条原始条目\n`);
 
   let summarized;
+  let llmProcessed = false;
   if (allItems.length === 0) {
     console.log("未抓取到任何内容，生成空页面。");
     summarized = [];
@@ -34,6 +35,7 @@ async function main() {
     console.log("[2/5] LLM 整理中...");
     try {
       summarized = await summarizeWithLLM(allItems);
+      llmProcessed = true;
       console.log(`整理后得到 ${summarized.length} 条精选内容\n`);
     } catch (e) {
       console.error("[LLM] 整理失败:", e.message);
@@ -53,7 +55,7 @@ async function main() {
   console.log("[3/5] 生成页面...");
 
   // 日归档页面
-  const dailyHTML = renderDailyPage(summarized, now);
+  const dailyHTML = renderDailyPage(summarized, now, llmProcessed);
   const dailyDir = path.resolve(process.cwd(), "docs", dateStr);
   await mkdir(dailyDir, { recursive: true });
   await writeFile(path.join(dailyDir, "index.html"), dailyHTML, "utf-8");
@@ -82,7 +84,7 @@ async function main() {
 
   // 5. 生成首页（展示最新内容 + 日期选择器）
   console.log("[5/5] 生成首页...");
-  const indexHTML = renderIndexPage(summarized, now, archive.dates);
+  const indexHTML = renderIndexPage(summarized, now, archive.dates, llmProcessed);
   await writeFile(path.resolve(process.cwd(), "docs", "index.html"), indexHTML, "utf-8");
 
   console.log(`\n完成！首页: /index.html    归档: /${dateStr}/index.html`);
