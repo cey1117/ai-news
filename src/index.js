@@ -39,7 +39,12 @@ async function main() {
       console.log(`整理后得到 ${summarized.length} 条精选内容\n`);
     } catch (e) {
       console.error("[LLM] 整理失败:", e.message);
-      console.log("回退：直接使用原始条目");
+      // 在 CI 环境（GitHub Actions）中，LLM 失败应该阻止部署，避免覆盖已有内容
+      if (process.env.CI) {
+        console.error("CI 环境：LLM 处理失败，退出以免覆盖已有内容");
+        process.exit(1);
+      }
+      console.log("本地环境回退：直接使用原始条目");
       summarized = allItems.map((item) => ({
         title: item.title,
         url: item.url,
