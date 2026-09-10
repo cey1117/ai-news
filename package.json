@@ -1,0 +1,14 @@
+{
+  "name": "ai-news",
+  "version": "1.0.0",
+  "description": "AI + 软件测试 每日资讯聚合",
+  "type": "module",
+  "scripts": {
+    "fetch": "node src/index.js",
+    "serve": "npx serve docs"
+  },
+  "dependencies": {
+    "openai": "^4.67.0",
+    "dotenv": "^16.4.5"
+  }
+}
