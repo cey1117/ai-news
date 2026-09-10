@@ -1,0 +1,33 @@
+src/llm.js
+  s_adf5ba9af35405::t_c1c56f6f4e3dae 11-12,32,34-42,45,47-48,55-56,71,74-76
+  s_adf5ba9af35405::t_305ab1eeeaba04 77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "fa1ca05971224b74c0827cd36a9e32493d20eee3",
+  "prompts": {},
+  "sessions": {
+    "s_adf5ba9af35405": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6aa203808bac318d048f5d3a",
+        "model": "deepseek-V4-Pro__max"
+      },
+      "human_author": "chenlong <chenlongcl.chen@huawei.com>",
+      "custom_attributes": {
+        "runtime_client": "trae-tob-git-ai",
+        "external_session_id": "6aa203808bac318d048f5d3a",
+        "source_scene": "unknown",
+        "tool_id": "Edit",
+        "session_id": "6aa203808bac318d048f5d3a",
+        "tool_use_id": "6aa21ccb8bac318d048f6004",
+        "dedupe_key": "6aa203808bac318d048f5d3a:6aa21ccb8bac318d048f6004:afterEdit:865d9b18",
+        "tool_type": "agent",
+        "client_type": "ide",
+        "operation_id": "6aa21ccb8bac318d048f6004",
+        "edit_kind": "file_edit"
+      }
+    }
+  }
+}
