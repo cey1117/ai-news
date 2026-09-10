@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026年9月10日星期四 - AI + 软件测试 每日资讯</title>
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --accent: #7c3aed;
+      --sidebar-w: 220px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ====== Layout ====== */
+    .app { display: flex; min-height: 100vh; }
+
+    /* ====== Sidebar ====== */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--card-bg);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      overflow-y: auto;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar-logo {
+      font-size: 18px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #0891b2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .sidebar-logo a { text-decoration: none; color: inherit; }
+
+    .date-picker {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .date-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .date-picker select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      background: var(--bg);
+      color: var(--text);
+      cursor: pointer;
+      outline: none;
+      font-family: inherit;
+    }
+    .date-picker select:focus { border-color: var(--accent); }
+
+    .side-nav-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .side-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+      overflow-y: auto;
+    }
+    .side-nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.12s;
+      white-space: nowrap;
+    }
+    .side-nav-item:hover, .side-nav-item.active {
+      background: #ede9fe;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .side-nav-item span {
+      font-size: 11px;
+      color: #94a3b8;
+      background: var(--bg);
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    .side-nav-item:hover span, .side-nav-item.active span {
+      background: #ddd6fe;
+      color: var(--accent);
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: #cbd5e1;
+      text-align: center;
+    }
+    .sidebar-footer a { color: #94a3b8; }
+
+    /* ====== Main Content ====== */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 32px 40px;
+      max-width: calc(100vw - var(--sidebar-w));
+    }
+    .main-header {
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .main-header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .main-header .subtitle {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+    .update-time {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    .featured { margin-bottom: 40px; }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .featured-card {
+      display: block;
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 24px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .featured-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(124,58,237,0.12);
+      border-color: var(--accent);
+    }
+    .featured-cat {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .featured-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .featured-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .cat-section {
+      margin-bottom: 40px;
+      scroll-margin-top: 20px;
+    }
+    .cat-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .cat-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .cat-header h3 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .cat-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .item-card {
+      display: block;
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 16px 18px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+    }
+    .item-card:hover {
+      border-color: #c4b5fd;
+      background: #faf9ff;
+    }
+    .item-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .item-source {
+      font-size: 11px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .item-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .item-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .score {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .score-high { background: #dcfce7; color: #15803d; }
+    .score-mid  { background: #fef3c7; color: #b45309; }
+    .score-low  { background: #f1f5f9; color: #64748b; }
+
+    .empty { text-align: center; padding: 80px 0; color: #94a3b8; font-size: 16px; }
+
+    /* ====== Mobile ====== */
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; max-width: 100%; padding: 20px 16px; }
+      .main-header h1 { font-size: 22px; }
+      .featured-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-toggle { display: none; }
+    }</style>
+  <script>
+    function setActive(el) {
+      document.querySelectorAll('.side-nav-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-logo"><a href="../">AI + 测试<br>每日资讯</a></div>
+      <div class="side-nav-label">📂 分类导航</div>
+      <nav class="side-nav"><a href="#cat-安全扫描" class="side-nav-item" onclick="setActive(this)">🛡️ 安全扫描<span>6</span></a><a href="#cat-业界研究" class="side-nav-item" onclick="setActive(this)">📖 业界研究<span>5</span></a><a href="#cat-测试框架" class="side-nav-item" onclick="setActive(this)">🏗️ 测试框架<span>6</span></a><a href="#cat-测试验证" class="side-nav-item" onclick="setActive(this)">✅ 测试验证<span>6</span></a><a href="#cat-测试工程" class="side-nav-item" onclick="setActive(this)">⚙️ 测试工程<span>7</span></a></nav>
+      <div class="sidebar-footer">
+        <a href="../">← 返回首页</a><br><br>
+        生成时间 (UTC+8)<br>2026-09-10 11:27:14<br><br>
+        <span class="status-ok">AI 整理</span><br><br>
+        数据来源<br>Google News · arXiv<br>Reddit · Semantic Scholar<br><br>
+        <a href="https://github.com/cey1117/ai-news">GitHub</a>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="main-header">
+        <h1>AI + 软件测试 每日资讯</h1>
+        <p class="subtitle">聚合 AI 驱动的用例生成、漏洞分析、程序分析、安全扫描、缺陷定位、测试框架、测试工程等领域最新动态</p>
+        <div class="update-time">📅 2026年9月10日星期四 11:27 · 共 30 条</div>
+      </div>
+      
+    <section class="featured">
+      <h2 class="section-title">🔥 今日精选</h2>
+      <div class="featured-grid">
+        
+          <a href="https://www.semanticscholar.org/paper/1d5ef73e42da7fdab53c9d4d5b0642ad858cb705" target="_blank" rel="noopener" class="featured-card">
+            <span class="featured-cat" style="background:#ea580c">🛡️ 安全扫描</span>
+            <h3>PENTEST-AI, an LLM-Powered Multi-Agents Framework for Penetration Testing Automation Leveraging Mitre Attack</h3>
+            <p>提出基于大语言模型的多智能体渗透测试自动化框架，结合Mitre ATT&amp;CK攻击知识库，让智能体协同完成侦察、漏洞利用和报告生成。相比传统人工渗透，显著提升测试覆盖率和效率，为安全测试智能化提供实用方法。</p>
+            <div class="featured-meta">
+              <span>Semantic Scholar</span>
+              <span class="score score-high">8分</span>
+            </div>
+          </a>
+        
+          <a href="https://www.semanticscholar.org/paper/dd41733b2793a9cf4cd3eaf8952bca6a1f788102" target="_blank" rel="noopener" class="featured-card">
+            <span class="featured-cat" style="background:#ea580c">🛡️ 安全扫描</span>
+            <h3>Comparing AI Agents to Cybersecurity Professionals in Real-World Penetration Testing</h3>
+            <p>将AI代理与人类网络安全专家放在真实渗透测试任务中进行对比，从漏洞发现数量、利用成功率和时间消耗等维度评估能力差距。结果显示AI在标准化场景中表现接近人类，但在复杂环境仍有局限，为安全自动化落地提供参考。</p>
+            <div class="featured-meta">
+              <span>Semantic Scholar</span>
+              <span class="score score-high">8分</span>
+            </div>
+          </a>
+        
+          <a href="https://www.semanticscholar.org/paper/e8fcbd97a80397eac8ac6b53a90799ef2b964735" target="_blank" rel="noopener" class="featured-card">
+            <span class="featured-cat" style="background:#ea580c">🛡️ 安全扫描</span>
+            <h3>GenXSS: an AI-Driven Framework for Automated Detection of XSS Attacks in WAFs</h3>
+            <p>提出AI驱动的XSS攻击检测框架GenXSS，专门面向Web应用防火墙（WAF），利用生成式方法自动构造绕过载荷并识别漏洞。可大规模验证WAF有效性，提高对跨站脚本攻击的防御能力，弥补传统规则库更新滞后的短板。</p>
+            <div class="featured-meta">
+              <span>Semantic Scholar</span>
+              <span class="score score-high">8分</span>
+            </div>
+          </a>
+        
+      </div>
+    </section>
+  
+      
+    <section class="cat-section" id="cat-安全扫描">
+      <div class="cat-header">
+        <span class="cat-icon" style="background:#ea580c">🛡️</span>
+        <div>
+          <h3>安全扫描</h3>
+          <span class="cat-desc">AI 安全测试与漏洞扫描 · 6条</span>
+        </div>
+      </div>
+      <div class="item-grid">
+        
+    <a href="https://www.semanticscholar.org/paper/1d5ef73e42da7fdab53c9d4d5b0642ad858cb705" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>PENTEST-AI, an LLM-Powered Multi-Agents Framework for Penetration Testing Automation Leveraging Mitre Attack</h4>
+      <p>提出基于大语言模型的多智能体渗透测试自动化框架，结合Mitre ATT&amp;CK攻击知识库，让智能体协同完成侦察、漏洞利用和报告生成。相比传统人工渗透，显著提升测试覆盖率和效率，为安全测试智能化提供实用方法。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/dd41733b2793a9cf4cd3eaf8952bca6a1f788102" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>Comparing AI Agents to Cybersecurity Professionals in Real-World Penetration Testing</h4>
+      <p>将AI代理与人类网络安全专家放在真实渗透测试任务中进行对比，从漏洞发现数量、利用成功率和时间消耗等维度评估能力差距。结果显示AI在标准化场景中表现接近人类，但在复杂环境仍有局限，为安全自动化落地提供参考。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/e8fcbd97a80397eac8ac6b53a90799ef2b964735" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>GenXSS: an AI-Driven Framework for Automated Detection of XSS Attacks in WAFs</h4>
+      <p>提出AI驱动的XSS攻击检测框架GenXSS，专门面向Web应用防火墙（WAF），利用生成式方法自动构造绕过载荷并识别漏洞。可大规模验证WAF有效性，提高对跨站脚本攻击的防御能力，弥补传统规则库更新滞后的短板。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/a3e7be9a9241126b85f5b83d99f2c4ec57f11ae2" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>RedTeamLLM: an Agentic AI framework for offensive security</h4>
+      <p>发布RedTeamLLM智能体框架，将大语言模型组织为攻防智能体，自动执行侦察、漏洞扫描、exploit利用和报告，实现进攻性安全的端到端自动化。为企业红队评估提供可扩展方案，降低对人工专家依赖。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/9e85ce8f1822105251870493e5326468fba18f0d" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>DoomArena: A framework for Testing AI Agents Against Evolving Security Threats</h4>
+      <p>构建DoomArena框架，用于在持续演化的安全威胁中测试AI智能体。通过动态生成攻击环境和对抗任务，评估智能体的安全决策与鲁棒性，为AI系统在真实攻防场景中的安全性测试提供新的试验平台。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/032a9038ed758bdfb6737b0b741504fd67c61501" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>Scalable Intrusion Detection in IoT Networks Via Property Testing and Federated Edge AI</h4>
+      <p>提出结合性质测试与联邦边缘AI的IoT入侵检测方案，在分布式网络节点上以低通信开销完成异常行为检测。性质测试保证判定准确性，联邦学习保护数据隐私，为大规模物联网安全监控提供可扩展架构。</p>
+    </a>
+      </div>
+    </section>
+    <section class="cat-section" id="cat-业界研究">
+      <div class="cat-header">
+        <span class="cat-icon" style="background:#6366f1">📖</span>
+        <div>
+          <h3>业界研究</h3>
+          <span class="cat-desc">行业报告与白皮书 · 5条</span>
+        </div>
+      </div>
+      <div class="item-grid">
+        
+    <a href="https://www.semanticscholar.org/paper/3dffd07fca3db1262b7470b5cac053e8ebc45153" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>AI-Driven Software Test Automation: An AI4SE-Oriented Survey of Techniques, Tools, and Challenges</h4>
+      <p>以AI4SE（AI for Software Engineering）视角系统综述AI驱动软件测试自动化，梳理智能测试生成、执行、修复等技术工具和挑战。覆盖从单元测试到端到端测试的自动化链条，为研究人员和工程团队选择技术路线提供全景参考。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/47469fb83b2451f933ca3db90bb143aa05ce2c64" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>Modernizing Testing: A Comparative Review of Test Automation Frameworks and AI Tools</h4>
+      <p>对传统测试自动化框架与AI测试工具进行对比综述，从可维护性、执行速度、智能定位能力等维度分析各自优劣势。为企业进行测试工具选型和测试体系现代化改造提供系统性参考依据。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/1d40e15394c9bbcbf14cb01c383f16d919f67c12" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>A Multi-Year Grey Literature Review on AI-assisted Test Automation</h4>
+      <p>通过多年灰色文献（博客、技术白皮书、会议资料）系统梳理AI辅助测试自动化的实践现状，总结业界常用的技术方案、实施模式和踩坑经验，弥补纯学术综述与工程实践之间的信息鸿沟。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/5f23cb30755628d1fe9fa38ae5ea7e4b97ae7865" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>AI-Driven Self-Healing in Test Automation: A Review of Autonomous Quality Assurance</h4>
+      <p>综述AI驱动的自愈测试自动化，分析智能定位测试失效、自动修复脚本和维护成本降低等关键技术。指出自愈能力是自主质量保障的核心，将为持续交付场景下的自动化测试稳定运行提供支撑。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/d01c0155a6a51e2afea6b72ff509211419ed5630" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>The Future of Test Automation: A Comparative Analysis of Selenium vs. AI-Driven Tools</h4>
+      <p>对比Selenium与传统测试工具同AI驱动测试工具的差异，从元素定位、脚本维护、执行效率等角度分析AI工具对测试自动化的改变，并探讨传统框架向智能测试迁移的路径与风险。</p>
+    </a>
+      </div>
+    </section>
+    <section class="cat-section" id="cat-测试框架">
+      <div class="cat-header">
+        <span class="cat-icon" style="background:#0891b2">🏗️</span>
+        <div>
+          <h3>测试框架</h3>
+          <span class="cat-desc">AI 测试框架与自动化平台 · 6条</span>
+        </div>
+      </div>
+      <div class="item-grid">
+        
+    <a href="https://www.semanticscholar.org/paper/57da1296602578931e20c633cd8a069791f6bf39" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>A Modular AI Testing Framework for Trustworthy AI: Proof-of-Concept Implementation</h4>
+      <p>提出模块化AI测试框架，通过概念验证实现可信AI的系统化评估。框架将测试拆分为多个可复用模块，覆盖数据、模型、行为等层面，旨在提升AI系统验证的灵活性和标准化程度，降低测试实施门槛。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/363e81ff8e66313393c480f193a1fac0e1472fc7" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>AutoDFBench: A Framework for AI Generated Digital Forensic Code and Tool Testing and Evaluation</h4>
+      <p>推出AutoDFBench基准框架，专门用于AI生成的数字取证代码和工具的测试与评估。通过标准化用例、自动化执行和结果比对，帮助验证AI辅助取证工具的正确性和可靠性，应对数字取证智能化带来的验证需求。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/8c417722f08798b24cb7db43459946344bfa81d3" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>AI Testing Framework for Next-G O-RAN Networks: Requirements, Design, and Research Opportunities</h4>
+      <p>面向下一代O-RAN网络的AI测试框架，分析其需求、架构设计及未来研究机会。重点关注无线接入网中AI组件的功能验证、性能评估和可靠性保障，为电信网络智能化测试提供框架性指导。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/54ebaa96d149f000be365533a88a9625d13450db" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>A Testing Framework for AI Linguistic Systems (testFAILS)</h4>
+      <p>介绍testFAILS测试框架，用于系统化测试AI语言系统的能力边界与失败模式。通过构造针对性输入对语言模型进行压力测试，帮助开发者发现模型在语义理解、推理一致性等方面的潜在缺陷。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/b6f1d9da04032eb51dfa873f7c8fd279dd6d06cf" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>Testing Framework for Black-box AI Models</h4>
+      <p>针对黑盒AI模型提出测试框架，在无法访问内部结构和训练数据的情况下，通过输入输出分析评估模型行为、鲁棒性和公平性。适用于第三方AI服务的合规验证和安全测评场景。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/4c6dae479b392bdb2c8d82582f3fcd7cddf1a0e3" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>RIVER 2.0: an open-source testing framework using AI techniques</h4>
+      <p>RIVER 2.0发布开源测试框架，利用AI技术对在线学习模型和数据流场景进行测试与评估。模块化设计支持快速扩展，为流式数据环境下的模型监控和验证提供标准化工具。</p>
+    </a>
+      </div>
+    </section>
+    <section class="cat-section" id="cat-测试验证">
+      <div class="cat-header">
+        <span class="cat-icon" style="background:#15803d">✅</span>
+        <div>
+          <h3>测试验证</h3>
+          <span class="cat-desc">AI 辅助验证与形式化验证 · 6条</span>
+        </div>
+      </div>
+      <div class="item-grid">
+        
+    <a href="https://www.semanticscholar.org/paper/ca7bc1661c2907cbe2e9daab924420405aca5c74" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>Sensitive Region-Based Metamorphic Testing Framework using Explainable AI</h4>
+      <p>提出一种结合可解释AI的蜕变测试框架，通过分析模型敏感区域来生成有效蜕变关系，提高AI系统的测试充分性。在无需人工标注测试预言的情况下发现模型缺陷，适用于图像、文本等复杂机器学习应用。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/ff78be90ee136680538fb2ad0dd25769c33afbd1" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>CERN for AI: a theoretical framework for autonomous simulation-based artificial intelligence testing and alignment</h4>
+      <p>借鉴CERN大型科研设施思路，提出自主仿真驱动的AI测试与对齐理论框架。用模拟环境和自动化实验对AI系统进行大规模验证，试图为通用AI的安全测试和价值观对齐建立可扩展的科学基础设施。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/e8f120b3c2ca6d58bab29ba0242a6a5f97ef5496" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>HiBayES: A Hierarchical Bayesian Modeling Framework for AI Evaluation Statistics</h4>
+      <p>提出层次贝叶斯建模框架HiBayES，用于AI评估数据的统计建模与分析。通过分层结构处理测试结果的不确定性和变异性，提升不同AI模型性能比较的严谨性，为基准测试结果提供更科学的统计支撑。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/bca6afd9de08b4144e3eb2d01628116018e73e89" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>AI testing, evaluation, verification and validation for accessibility: a comprehensive framework</h4>
+      <p>提出覆盖AI全生命周期的可访问性测试、评估、验证与校验综合框架，确保AI产品对残障用户的可用性与公平性。框架整合了技术测试和合规要求，为AI无障碍质量保障提供操作指南。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/95d789c0f79b92801a0623c5295ee8bfc610731d" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>Testing the Limits of Language Models: A Conversational Framework for Medical AI Assessment</h4>
+      <p>提出用于医学AI评估的对话式测试框架，通过与大型语言模型进行结构化对话来检验其临床知识、推理能力和安全性。可系统暴露医学AI在复杂病例中的局限，辅助医疗AI上线前的风险管理。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/811bc6006f4cb939becc5dbdca0eecbbf093d0b9" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>Evaluating AI Responses: A Step-by-Step Approach for Test Automation</h4>
+      <p>提出逐步评估AI输出质量的方法，用于测试自动化流程中对模型生成的结果进行系统化验证。通过定义评估标准、分层检查和反馈机制，帮助团队确保AI在测试任务中的输出可靠、可用且可追溯。</p>
+    </a>
+      </div>
+    </section>
+    <section class="cat-section" id="cat-测试工程">
+      <div class="cat-header">
+        <span class="cat-icon" style="background:#4f46e5">⚙️</span>
+        <div>
+          <h3>测试工程</h3>
+          <span class="cat-desc">AI 测试工程化与 CI/CD · 7条</span>
+        </div>
+      </div>
+      <div class="item-grid">
+        
+    <a href="https://www.semanticscholar.org/paper/ab346d73b989a1eb6c9940cb58ab004fc97efd0e" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>Self generating &amp; self healing test automation scripts using AI for automating regulatory &amp; compliance functions in financial institutions</h4>
+      <p>针对金融机构监管合规场景，设计了基于AI的测试脚本自动生成与自愈框架。系统能自动生成脚本并在界面或业务规则变化时自我修复，大幅降低合规测试的维护成本，帮助金融机构更快响应监管变化。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/333d584e6836bc07428a864a68f126e3bf766fb2" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>AI-DRIVEN TEST AUTOMATION FRAMEWORKS: ENHANCING EFFICIENCY AND ACCURACY IN SOFTWARE QUALITY ASSURANCE</h4>
+      <p>探讨AI驱动的测试自动化框架如何提升软件质量保障的效率和准确性，分析智能用例生成、结果分析和自适应修复等核心技术，给出落地路径和需要注意的局限，适合QA团队规划AI转型时参考。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/d230a534d75d9338d0026157e699062b749b2005" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>Enhancing SAP S/4HANA and Salesforce Quality Assurance &amp; Quality Control through AI-Driven Test Automation Frameworks for Regulatory Compliance</h4>
+      <p>针对SAP S/4HANA和Salesforce等企业系统，提出AI测试自动化框架以强化QA/QC和监管合规能力。框架结合智能回归测试、数据驱动生成和合规规则校验，帮助企业提高ERP和CRM系统的交付质量。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/9bf80cfb4501558cfa1db237ec27a19b96e56acd" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>AI-Driven Test Automation for Big Data Systems in Cloud Environments</h4>
+      <p>面向云环境中大数据系统的测试自动化提出AI方案，针对分布式数据处理、海量数据异构等特点，利用智能生成和异常检测技术提升测试效率与覆盖率，为云端大数据质量保障提供参考。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/66d48e348a5cce3b3e4bc7a462727e7001998e60" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>AI and Machine Learning in Software Testing: Bridging the Gap Between Defect Prediction, Test Automation, and Continuous Integration</h4>
+      <p>探讨AI/ML在软件测试中的桥梁作用，将缺陷预测、测试自动化和持续集成结合起来，形成从代码变更到智能回归的闭环。强调以历史数据驱动质量决策，提升CI流水线的测试效率和缺陷拦截率。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/5087b8af99ba1500c2bac468ee80cd3a3285ed6a" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>Self-Healing Test Automation Framework using AI and ML</h4>
+      <p>设计并实现基于AI/ML的自愈测试自动化框架，能自动识别因UI变更导致的脚本失败，并智能调整定位器或重建测试步骤。显著减少人工脚本维护工作，提升自动化测试的稳定性和长期可持续性。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/0fe9c8f6d0b77fad0c52fcb7bc0dcb8490adc83a" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>AI-POWERED TEST AUTOMATION IN SALESFORCE: OPPORTUNITIES AND CHALLENGES</h4>
+      <p>聚焦Salesforce平台上的AI测试自动化实践，分析其在配置变更频繁、多云扩展等场景下的机会与挑战。提出结合AI生成测试数据和自适应执行的方案，助力企业提升云端CRM系统的测试效率。</p>
+    </a>
+      </div>
+    </section>
+    </main>
+  </div>
+</body>
+</html>
