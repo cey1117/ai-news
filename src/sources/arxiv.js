@@ -2,17 +2,27 @@ import { MAX_ITEMS_PER_SOURCE } from "../config.js";
 
 /**
  * arXiv API —— 官方 API，无需爬取
- * 搜索 AI + testing 相关论文，按时间排序
+ * 搜索 AI + 软件测试 各子领域论文
  */
 const ARXIV_QUERIES = [
-  "AI AND software testing",
-  "AI AND test generation",
-  "machine learning AND testing",
+  "AI AND test case generation",
+  "LLM AND test generation",
+  "AI AND vulnerability detection",
+  "AI AND bug detection",
+  "AI AND program analysis",
+  "AI AND static analysis",
+  "AI AND security testing",
+  "AI AND defect localization",
+  "AI AND fault localization",
+  "AI AND testing framework",
+  "AI AND test automation",
+  "AI AND test management",
   "AI AND fuzzing",
-  "neural network AND test automation",
   "AI AND kernel testing",
+  "AI AND software testing",
   "AI AND test verification",
-  "LLM AND testing",
+  "machine learning AND testing",
+  "neural network AND test generation",
 ];
 
 export async function fetchArxiv() {

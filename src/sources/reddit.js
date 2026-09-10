@@ -18,7 +18,7 @@ export async function fetchReddit() {
   for (const sub of SUBREDDITS) {
     try {
       // 不带 search 的 Reddit API 请求，传多个子版块用 +
-      const url = `https://www.reddit.com/r/${sub}/search.json?q=AI+testing+automation+test&sort=new&restrict_sr=on&limit=${MAX_ITEMS_PER_SOURCE}&t=day`;
+      const url = `https://www.reddit.com/r/${sub}/search.json?q=AI+testing+test+automation+generation+vulnerability+fuzzing+verification&sort=new&restrict_sr=on&limit=${MAX_ITEMS_PER_SOURCE}&t=day`;
 
       const response = await fetch(url, {
         headers: { "User-Agent": "ai-news-aggregator/1.0" },
