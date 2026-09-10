@@ -1,0 +1,32 @@
+update.sh
+  s_adf5ba9af35405::t_019edb3860b27f 1-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "a3a507cccedd3f97f6472beb568171ce66949c19",
+  "prompts": {},
+  "sessions": {
+    "s_adf5ba9af35405": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6aa203808bac318d048f5d3a",
+        "model": "deepseek-V4-Pro__max"
+      },
+      "human_author": "chenlong <chenlongcl.chen@huawei.com>",
+      "custom_attributes": {
+        "client_type": "ide",
+        "external_session_id": "6aa203808bac318d048f5d3a",
+        "edit_kind": "file_edit",
+        "dedupe_key": "6aa203808bac318d048f5d3a:6aa22adf8bac318d048f613b:afterEdit:05f813f7",
+        "operation_id": "6aa22adf8bac318d048f613b",
+        "tool_id": "Write",
+        "session_id": "6aa203808bac318d048f5d3a",
+        "runtime_client": "trae-tob-git-ai",
+        "tool_type": "agent",
+        "tool_use_id": "6aa22adf8bac318d048f613b",
+        "source_scene": "unknown"
+      }
+    }
+  }
+}
