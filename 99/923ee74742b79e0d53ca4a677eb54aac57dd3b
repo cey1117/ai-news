@@ -1,0 +1,43 @@
+package.json
+  s_adf5ba9af35405::t_1ba107d2d0443a 11-13,15
+src/template.js
+  s_adf5ba9af35405::t_06743d4a702bdc 1-13,22-42,44-56,59,64,68-105,107-113,120,122-129,132-136,138-140,143-145,148-150,154,156-159,161-172,174-218,220-225,231-250,252-256,258-308,310-349,353,355-362,369-371,373-381,385
+  s_adf5ba9af35405::t_d09aff063554a3 43
+src/sources/reddit.js
+  s_adf5ba9af35405::t_a1722e4fff65b1 21
+src/llm.js
+  s_adf5ba9af35405::t_373cd12a6fbf62 7,9-64,67-74,77,102,105
+src/sources/arxiv.js
+  s_adf5ba9af35405::t_aa7a369acbb319 5,8-19,22,24-25
+src/config.js
+  s_adf5ba9af35405::t_72e6b7ac17b21f 1,3-31,33-42,45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "99923ee74742b79e0d53ca4a677eb54aac57dd3b",
+  "prompts": {},
+  "sessions": {
+    "s_adf5ba9af35405": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6aa203808bac318d048f5d3a",
+        "model": "deepseek-V4-Pro__max"
+      },
+      "human_author": "chenlong <chenlongcl.chen@huawei.com>",
+      "custom_attributes": {
+        "dedupe_key": "6aa203808bac318d048f5d3a:6aa20f458bac318d048f5ed5:afterEdit:67cab9dc",
+        "external_session_id": "6aa203808bac318d048f5d3a",
+        "runtime_client": "trae-tob-git-ai",
+        "tool_type": "agent",
+        "operation_id": "6aa20f458bac318d048f5ed5",
+        "tool_id": "Edit",
+        "tool_use_id": "6aa20f458bac318d048f5ed5",
+        "edit_kind": "file_edit",
+        "client_type": "ide",
+        "session_id": "6aa203808bac318d048f5d3a",
+        "source_scene": "unknown"
+      }
+    }
+  }
+}
