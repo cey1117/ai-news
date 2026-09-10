@@ -4,7 +4,7 @@ const BASE_URL = process.env.LLM_BASE_URL || "https://api.openai.com/v1";
 const API_KEY = process.env.LLM_API_KEY || "sk-placeholder";
 const MODEL = process.env.LLM_MODEL || "gpt-4o-mini";
 
-const SYSTEM_PROMPT = `你是一个 AI + 软件测试 领域的资深信息分析专家。用户会给你一批近24小时的新闻、论文、讨论标题和链接。
+const SYSTEM_PROMPT = `你是一个 AI + 软件测试 领域的资深信息分析专家和科技记者。用户会给你一批近24小时的新闻、论文、讨论标题和链接。
 
 ## 你的核心任务
 
@@ -22,6 +22,7 @@ const SYSTEM_PROMPT = `你是一个 AI + 软件测试 领域的资深信息分�
 - 模糊测试（AI驱动的Fuzzing）
 - 内核测试（AI在内核/系统测试中的应用）
 - 测试验证（AI辅助验证、形式化验证）
+- 业界研究（行业报告、白皮书、技术趋势分析、实践总结）
 
 **必须丢弃的条目**：
 - 纯AI模型研究（不涉及测试应用）
@@ -35,8 +36,16 @@ const SYSTEM_PROMPT = `你是一个 AI + 软件测试 领域的资深信息分�
 - 5-7分：有价值的技术分享、实践经验、行业动态
 - 1-4分：一般性讨论、重复内容（这类直接丢弃，不输出）
 
-### 3. 分类
-将每条归入以下分类之一：
+### 3. 深度理解与中文重述（最重要！）
+你需要根据标题深入理解每条信息的内容，然后用自然流畅的中文重新表述。要求：
+- 像写新闻简报一样，从标题推断出内容的核心要点
+- 用中文重新组织语言，不是翻译标题，而是理解后用自己的话讲出来
+- 摘要 80-120 字，包含：这项技术/研究做了什么、用了什么方法/技术、有什么意义或影响
+- 语言风格：专业但易懂，像科技媒体的报道摘要
+- 不要出现"本文"、"该研究"等论文腔，直接说事实
+
+### 4. 分类
+将每条归入以下分类之一（必须严格使用以下名称，不要用"综合"）：
 - 用例生成
 - 漏洞分析
 - 程序分析
@@ -49,13 +58,7 @@ const SYSTEM_PROMPT = `你是一个 AI + 软件测试 领域的资深信息分�
 - 模糊测试
 - 内核测试
 - 测试验证
-- 业界研究（行业报告、白皮书、技术趋势分析、实践总结）
-
-### 4. 中文摘要
-为每条生成中文摘要（50-80字），要求：
-- 保留关键信息：谁做了什么、用什么技术、达到什么效果
-- 语言流畅、信息密度高
-- 不要翻译腔
+- 业界研究
 
 ### 5. 排序
 按质量评分从高到低排序。
@@ -68,10 +71,10 @@ const SYSTEM_PROMPT = `你是一个 AI + 软件测试 领域的资深信息分�
   {
     "title": "英文原标题",
     "url": "原文链接",
-    "category": "分类",
+    "category": "分类（必须来自上述列表）",
     "score": 8,
-    "summary": "中文摘要，50-80字，信息密度高",
-    "source": "来源(google/arxiv/reddit)"
+    "summary": "中文深度摘要，80-120字，用自然的中文重新表述内容要点",
+    "source": "来源(google/arxiv/reddit/scholar)"
   }
 ]
 
@@ -79,8 +82,6 @@ const SYSTEM_PROMPT = `你是一个 AI + 软件测试 领域的资深信息分�
 
 /**
  * 调用自建 LLM 整理抓取到的原始条目
- * @param {Array<{title: string, url: string, source: string}>} rawItems
- * @returns {Promise<Array>}
  */
 export async function summarizeWithLLM(rawItems) {
   if (rawItems.length === 0) return [];
@@ -100,10 +101,10 @@ export async function summarizeWithLLM(rawItems) {
     model: MODEL,
     messages: [
       { role: "system", content: SYSTEM_PROMPT },
-      { role: "user", content: `请分析以下近24小时 AI+软件测试 相关信息，严格过滤相关性，高质量评分，中文摘要，按评分排序：\n\n${userContent}` },
+      { role: "user", content: `请分析以下近24小时 AI+软件测试 相关信息。先理解每条的标题推断内容，然后用中文重新表述，严格过滤无关内容，按质量评分排序：\n\n${userContent}` },
     ],
-    temperature: 0.3,
-    max_tokens: 8192,
+    temperature: 0.5,
+    max_tokens: 16384,
   });
 
   const text = response.choices[0].message.content.trim();

@@ -1,17 +1,17 @@
 const CATEGORY_META = {
-  "用例生成":    { icon: "🧪", color: "#7c3aed", desc: "AI 驱动的测试用例生成与设计" },
-  "漏洞分析":    { icon: "🐛", color: "#dc2626", desc: "AI 漏洞检测、缺陷预测与分析" },
-  "程序分析":    { icon: "🔍", color: "#2563eb", desc: "AI 静态/动态程序分析与代码审查" },
-  "安全扫描":    { icon: "🛡️", color: "#ea580c", desc: "AI 安全测试、渗透测试与漏洞扫描" },
-  "缺陷定位":    { icon: "🎯", color: "#c026d3", desc: "AI 故障定位、错误追踪与根因分析" },
-  "测试框架":    { icon: "🏗️", color: "#0891b2", desc: "AI 测试框架、工具与自动化平台" },
-  "测试工程":    { icon: "⚙️", color: "#4f46e5", desc: "AI 测试工程化与 CI/CD 集成" },
-  "测试流程":    { icon: "📋", color: "#059669", desc: "AI 测试管理、流程优化与质量度量" },
-  "测试治理":    { icon: "📊", color: "#d97706", desc: "AI 测试策略、质量保障与治理体系" },
-  "模糊测试":    { icon: "💥", color: "#b91c1c", desc: "AI 驱动的 Fuzzing 与模糊测试" },
-  "内核测试":    { icon: "🖥️", color: "#1e40af", desc: "AI 在内核与系统测试中的应用" },
-  "测试验证":    { icon: "✅", color: "#15803d", desc: "AI 辅助测试验证与形式化验证" },
-  "业界研究":    { icon: "📖", color: "#6366f1", desc: "AI+测试 行业研究报告与白皮书" },
+  "用例生成":    { icon: "🧪", color: "#7c3aed", desc: "AI 生成的测试用例与脚本" },
+  "漏洞分析":    { icon: "🐛", color: "#dc2626", desc: "AI 漏洞检测与缺陷预测" },
+  "程序分析":    { icon: "🔍", color: "#2563eb", desc: "AI 静态/动态程序分析" },
+  "安全扫描":    { icon: "🛡️", color: "#ea580c", desc: "AI 安全测试与漏洞扫描" },
+  "缺陷定位":    { icon: "🎯", color: "#c026d3", desc: "AI 故障定位与根因分析" },
+  "测试框架":    { icon: "🏗️", color: "#0891b2", desc: "AI 测试框架与自动化平台" },
+  "测试工程":    { icon: "⚙️", color: "#4f46e5", desc: "AI 测试工程化与 CI/CD" },
+  "测试流程":    { icon: "📋", color: "#059669", desc: "AI 测试管理与流程优化" },
+  "测试治理":    { icon: "📊", color: "#d97706", desc: "AI 测试策略与质量保障" },
+  "模糊测试":    { icon: "💥", color: "#b91c1c", desc: "AI 驱动的 Fuzzing" },
+  "内核测试":    { icon: "🖥️", color: "#1e40af", desc: "AI 内核与系统测试" },
+  "测试验证":    { icon: "✅", color: "#15803d", desc: "AI 辅助验证与形式化验证" },
+  "业界研究":    { icon: "📖", color: "#6366f1", desc: "行业报告与白皮书" },
 };
 
 const SOURCE_NAMES = {
@@ -42,7 +42,7 @@ function renderItemCard(item) {
 function renderCategorySection(cat, items) {
   const meta = CATEGORY_META[cat] || { icon: "📌", color: "#666", desc: "" };
   return `
-    <section class="category-section" id="cat-${escapeHTML(cat)}">
+    <section class="cat-section" id="cat-${escapeHTML(cat)}">
       <div class="cat-header">
         <span class="cat-icon" style="background:${meta.color}">${meta.icon}</span>
         <div>
@@ -58,13 +58,13 @@ function renderCategorySection(cat, items) {
 
 function buildContentBlocks(items) {
   if (items.length === 0) {
-    return `<div class="empty">暂无内容，请稍后再来查看。</div>`;
+    return { catNav: "", featuredHTML: "", sectionsHTML: `<div class="empty">暂无内容，请稍后再来查看。</div>` };
   }
 
   // 按 category 分组
   const grouped = {};
   for (const item of items) {
-    const cat = item.category || "综合";
+    const cat = item.category || "其他";
     if (!grouped[cat]) grouped[cat] = [];
     grouped[cat].push(item);
   }
@@ -83,10 +83,13 @@ function buildContentBlocks(items) {
 
   const sectionsHTML = catOrder.map((cat) => renderCategorySection(cat, grouped[cat])).join("");
 
-  const catTags = catOrder.map((cat) => {
-    const meta = CATEGORY_META[cat] || { icon: "", color: "#666" };
-    return `<a href="#cat-${escapeHTML(cat)}" class="nav-tag">${meta.icon} ${escapeHTML(cat)}</a>`;
-  }).join("");
+  // 侧边栏分类导航（只显示已知分类，过滤"综合"/"其他"）
+  const catNav = catOrder
+    .filter((cat) => CATEGORY_META[cat])
+    .map((cat) => {
+      const meta = CATEGORY_META[cat];
+      return `<a href="#cat-${escapeHTML(cat)}" class="side-nav-item" onclick="setActive(this)">${meta.icon} ${escapeHTML(cat)}<span>${grouped[cat].length}</span></a>`;
+    }).join("");
 
   // 精选 top 3
   const topItems = items.filter((i) => (i.score || 0) >= 8).slice(0, 3);
@@ -109,10 +112,9 @@ function buildContentBlocks(items) {
     </section>
   ` : "";
 
-  return { catTags, featuredHTML, sectionsHTML };
+  return { catNav, featuredHTML, sectionsHTML };
 }
 
-// ====== 日期选择器 ======
 function renderDatePicker(dates, currentDate) {
   if (!dates || dates.length === 0) return "";
   const current = formatDateStr(currentDate);
@@ -125,7 +127,7 @@ function renderDatePicker(dates, currentDate) {
 
   return `
     <div class="date-picker">
-      <label>📅 选择日期：</label>
+      <div class="date-label">📅 日期选择</div>
       <select onchange="location=this.value">
         <option value="./">最新</option>
         ${options}
@@ -145,17 +147,18 @@ function formatDisplayDate(dateStr) {
   return `${y}年${parseInt(m)}月${parseInt(d)}日`;
 }
 
-// ====== 公共样式 ======
 const BASE_CSS = `
     :root {
-      --bg: #f8fafc;
+      --bg: #f1f5f9;
       --card-bg: #ffffff;
       --text: #1e293b;
       --text-secondary: #64748b;
       --border: #e2e8f0;
       --accent: #7c3aed;
+      --sidebar-w: 220px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       background: var(--bg);
@@ -163,76 +166,149 @@ const BASE_CSS = `
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
 
-    header {
-      text-align: center;
-      padding: 48px 0 24px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 32px;
+    /* ====== Layout ====== */
+    .app { display: flex; min-height: 100vh; }
+
+    /* ====== Sidebar ====== */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--card-bg);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      overflow-y: auto;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
     }
-    header h1 {
-      font-size: 32px;
+    .sidebar-logo {
+      font-size: 18px;
       font-weight: 800;
       background: linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #0891b2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+      text-align: center;
+      line-height: 1.3;
     }
-    header .subtitle {
-      color: var(--text-secondary);
-      font-size: 15px;
-      margin-top: 8px;
-    }
-    header .update-time {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 4px 14px;
-      background: #f1f5f9;
-      border-radius: 20px;
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
+    .sidebar-logo a { text-decoration: none; color: inherit; }
 
     .date-picker {
-      text-align: center;
-      margin-bottom: 24px;
-      font-size: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .date-label {
+      font-size: 12px;
       color: var(--text-secondary);
+      margin-bottom: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .date-picker select {
-      margin-left: 8px;
-      padding: 6px 12px;
+      width: 100%;
+      padding: 8px 10px;
       border: 1px solid var(--border);
       border-radius: 8px;
-      font-size: 14px;
-      background: var(--card-bg);
+      font-size: 13px;
+      background: var(--bg);
       color: var(--text);
       cursor: pointer;
       outline: none;
+      font-family: inherit;
     }
     .date-picker select:focus { border-color: var(--accent); }
 
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 32px;
-      justify-content: center;
+    .side-nav-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .nav-tag {
-      display: inline-block;
-      padding: 4px 12px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
+    .side-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+      overflow-y: auto;
+    }
+    .side-nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 10px;
+      border-radius: 8px;
       font-size: 13px;
       color: var(--text-secondary);
       text-decoration: none;
-      transition: all 0.15s;
+      transition: all 0.12s;
+      white-space: nowrap;
     }
-    .nav-tag:hover { border-color: var(--accent); color: var(--accent); }
+    .side-nav-item:hover, .side-nav-item.active {
+      background: #ede9fe;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .side-nav-item span {
+      font-size: 11px;
+      color: #94a3b8;
+      background: var(--bg);
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    .side-nav-item:hover span, .side-nav-item.active span {
+      background: #ddd6fe;
+      color: var(--accent);
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: #cbd5e1;
+      text-align: center;
+    }
+    .sidebar-footer a { color: #94a3b8; }
+
+    /* ====== Main Content ====== */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 32px 40px;
+      max-width: calc(100vw - var(--sidebar-w));
+    }
+    .main-header {
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .main-header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .main-header .subtitle {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+    .update-time {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
 
     .section-title {
       font-size: 20px;
@@ -258,7 +334,6 @@ const BASE_CSS = `
       color: var(--text);
       border: 1px solid var(--border);
       transition: all 0.2s;
-      position: relative;
     }
     .featured-card:hover {
       transform: translateY(-3px);
@@ -301,7 +376,7 @@ const BASE_CSS = `
       color: #94a3b8;
     }
 
-    .category-section {
+    .cat-section {
       margin-bottom: 40px;
       scroll-margin-top: 20px;
     }
@@ -369,7 +444,7 @@ const BASE_CSS = `
     .item-card p {
       font-size: 13px;
       color: var(--text-secondary);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .score {
@@ -385,28 +460,24 @@ const BASE_CSS = `
 
     .empty { text-align: center; padding: 80px 0; color: #94a3b8; font-size: 16px; }
 
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      color: #cbd5e1;
-      font-size: 12px;
-      border-top: 1px solid var(--border);
-      margin-top: 20px;
-    }
-    footer a { color: #94a3b8; }
-
-    @media (max-width: 640px) {
-      header h1 { font-size: 24px; }
+    /* ====== Mobile ====== */
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; max-width: 100%; padding: 20px 16px; }
+      .main-header h1 { font-size: 22px; }
       .featured-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-toggle { display: none; }
     }`;
 
-// ====== 日归档页面（不含日期选择器） ======
 export function renderDailyPage(items, date) {
   const dateStr = date.toLocaleDateString("zh-CN", {
     year: "numeric", month: "long", day: "numeric", weekday: "long",
   });
   const timeStr = date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" });
-  const { catTags, featuredHTML, sectionsHTML } = buildContentBlocks(items);
+  const { catNav, featuredHTML, sectionsHTML } = buildContentBlocks(items);
 
   return `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -415,37 +486,46 @@ export function renderDailyPage(items, date) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${dateStr} - AI + 软件测试 每日资讯</title>
   <style>${BASE_CSS}</style>
+  <script>
+    function setActive(el) {
+      document.querySelectorAll('.side-nav-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>AI + 软件测试 每日资讯</h1>
-      <p class="subtitle">聚合 AI 驱动的用例生成、漏洞分析、程序分析、安全扫描、缺陷定位、测试框架、测试工程等领域最新动态</p>
-      <div class="update-time">📅 ${dateStr} ${timeStr} · 共 ${items.length} 条</div>
-    </header>
-
-    ${catTags ? `<nav class="nav">${catTags}</nav>` : ""}
-    ${featuredHTML}
-    ${sectionsHTML}
-
-    <footer>
-      <a href="../">← 返回首页</a> &nbsp;|&nbsp;
-      数据来源: Google News · arXiv · Reddit · Semantic Scholar |
-      由大模型自动整理 ·
-      <a href="https://github.com/${process.env.GITHUB_REPOSITORY || "cey1117/ai-news"}">GitHub</a>
-    </footer>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-logo"><a href="../">AI + 测试<br>每日资讯</a></div>
+      <div class="side-nav-label">📂 分类导航</div>
+      <nav class="side-nav">${catNav}</nav>
+      <div class="sidebar-footer">
+        <a href="../">← 返回首页</a><br><br>
+        数据来源<br>Google News · arXiv<br>Reddit · Semantic Scholar<br><br>
+        由大模型自动整理<br>
+        <a href="https://github.com/${process.env.GITHUB_REPOSITORY || "cey1117/ai-news"}">GitHub</a>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="main-header">
+        <h1>AI + 软件测试 每日资讯</h1>
+        <p class="subtitle">聚合 AI 驱动的用例生成、漏洞分析、程序分析、安全扫描、缺陷定位、测试框架、测试工程等领域最新动态</p>
+        <div class="update-time">📅 ${dateStr} ${timeStr} · 共 ${items.length} 条</div>
+      </div>
+      ${featuredHTML}
+      ${sectionsHTML}
+    </main>
   </div>
 </body>
 </html>`;
 }
 
-// ====== 首页（含日期选择器 + 最新内容） ======
 export function renderIndexPage(items, date, archiveDates) {
   const dateStr = date.toLocaleDateString("zh-CN", {
     year: "numeric", month: "long", day: "numeric", weekday: "long",
   });
   const timeStr = date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" });
-  const { catTags, featuredHTML, sectionsHTML } = buildContentBlocks(items);
+  const { catNav, featuredHTML, sectionsHTML } = buildContentBlocks(items);
 
   return `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -454,26 +534,35 @@ export function renderIndexPage(items, date, archiveDates) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI + 软件测试 每日资讯</title>
   <style>${BASE_CSS}</style>
+  <script>
+    function setActive(el) {
+      document.querySelectorAll('.side-nav-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>AI + 软件测试 每日资讯</h1>
-      <p class="subtitle">聚合 AI 驱动的用例生成、漏洞分析、程序分析、安全扫描、缺陷定位、测试框架、测试工程等领域最新动态</p>
-      <div class="update-time">📅 ${dateStr} ${timeStr} · 共 ${items.length} 条</div>
-    </header>
-
-    ${renderDatePicker(archiveDates, date)}
-
-    ${catTags ? `<nav class="nav">${catTags}</nav>` : ""}
-    ${featuredHTML}
-    ${sectionsHTML}
-
-    <footer>
-      数据来源: Google News · arXiv · Reddit · Semantic Scholar |
-      由大模型自动整理 ·
-      <a href="https://github.com/${process.env.GITHUB_REPOSITORY || "cey1117/ai-news"}">GitHub</a>
-    </footer>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-logo"><a href="./">AI + 测试<br>每日资讯</a></div>
+      ${renderDatePicker(archiveDates, date)}
+      <div class="side-nav-label">📂 分类导航</div>
+      <nav class="side-nav">${catNav}</nav>
+      <div class="sidebar-footer">
+        数据来源<br>Google News · arXiv<br>Reddit · Semantic Scholar<br><br>
+        由大模型自动整理<br>
+        <a href="https://github.com/${process.env.GITHUB_REPOSITORY || "cey1117/ai-news"}">GitHub</a>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="main-header">
+        <h1>AI + 软件测试 每日资讯</h1>
+        <p class="subtitle">聚合 AI 驱动的用例生成、漏洞分析、程序分析、安全扫描、缺陷定位、测试框架、测试工程等领域最新动态</p>
+        <div class="update-time">📅 ${dateStr} ${timeStr} · 共 ${items.length} 条</div>
+      </div>
+      ${featuredHTML}
+      ${sectionsHTML}
+    </main>
   </div>
 </body>
 </html>`;
