@@ -1,0 +1,35 @@
+docs/2026-09-10/index.html
+  s_adf5ba9af35405::t_eff5f31f6062c1 343-696
+  s_adf5ba9af35405::t_1bc48b0c8c21ad 340-342
+  s_adf5ba9af35405::t_4dbcd4833021e8 697-699
+docs/archive.json
+  s_adf5ba9af35405::t_eff5f31f6062c1 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "3665c0236ed49b00d8453e68b90267c7988cafdc",
+  "prompts": {},
+  "sessions": {
+    "s_adf5ba9af35405": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6aa203808bac318d048f5d3a",
+        "model": "deepseek-V4-Pro__max"
+      },
+      "human_author": "chenlong <chenlongcl.chen@huawei.com>",
+      "custom_attributes": {
+        "tool_use_id": "6aa224d18bac318d048f60e6",
+        "session_id": "6aa203808bac318d048f5d3a",
+        "operation_id": "6aa224d18bac318d048f60e6",
+        "edit_kind": "bash",
+        "external_session_id": "6aa203808bac318d048f5d3a",
+        "runtime_client": "trae-tob-git-ai",
+        "client_type": "ide",
+        "tool_name": "RunCommand",
+        "display_model_name": "DeepSeek-V4-Pro",
+        "source_scene": "agent"
+      }
+    }
+  }
+}
