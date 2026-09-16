@@ -347,13 +347,13 @@
       <div class="date-label">📅 日期选择</div>
       <select onchange="location=this.value">
         <option value="./">最新</option>
-        <option value="./" selected>2026年9月17日 (24条)</option><option value="2026-09-16/">2026年9月16日 (28条)</option><option value="2026-09-15/">2026年9月15日 (27条)</option><option value="2026-09-14/">2026年9月14日 (24条)</option><option value="2026-09-13/">2026年9月13日 (40条)</option><option value="2026-09-12/">2026年9月12日 (60条)</option><option value="2026-09-11/">2026年9月11日 (29条)</option><option value="2026-09-10/">2026年9月10日 (25条)</option>
+        <option value="./" selected>2026年9月17日 (30条)</option><option value="2026-09-16/">2026年9月16日 (28条)</option><option value="2026-09-15/">2026年9月15日 (27条)</option><option value="2026-09-14/">2026年9月14日 (24条)</option><option value="2026-09-13/">2026年9月13日 (40条)</option><option value="2026-09-12/">2026年9月12日 (60条)</option><option value="2026-09-11/">2026年9月11日 (29条)</option><option value="2026-09-10/">2026年9月10日 (25条)</option>
       </select>
     </div>
       <div class="side-nav-label">📂 分类导航</div>
-      <nav class="side-nav"><a href="#cat-模糊测试" class="side-nav-item" onclick="setActive(this)">💥 模糊测试<span>2</span></a><a href="#cat-用例生成" class="side-nav-item" onclick="setActive(this)">🧪 用例生成<span>3</span></a><a href="#cat-安全测试" class="side-nav-item" onclick="setActive(this)">🛡️ 安全测试<span>14</span></a><a href="#cat-测试框架与工程" class="side-nav-item" onclick="setActive(this)">🏗️ 测试框架与工程<span>3</span></a><a href="#cat-测试验证" class="side-nav-item" onclick="setActive(this)">✅ 测试验证<span>1</span></a><a href="#cat-业界研究" class="side-nav-item" onclick="setActive(this)">📖 业界研究<span>1</span></a></nav>
+      <nav class="side-nav"><a href="#cat-安全测试" class="side-nav-item" onclick="setActive(this)">🛡️ 安全测试<span>17</span></a><a href="#cat-模糊测试" class="side-nav-item" onclick="setActive(this)">💥 模糊测试<span>2</span></a><a href="#cat-程序分析" class="side-nav-item" onclick="setActive(this)">🔍 程序分析<span>4</span></a><a href="#cat-测试验证" class="side-nav-item" onclick="setActive(this)">✅ 测试验证<span>1</span></a><a href="#cat-测试框架与工程" class="side-nav-item" onclick="setActive(this)">🏗️ 测试框架与工程<span>3</span></a><a href="#cat-业界研究" class="side-nav-item" onclick="setActive(this)">📖 业界研究<span>1</span></a><a href="#cat-用例生成" class="side-nav-item" onclick="setActive(this)">🧪 用例生成<span>1</span></a><a href="#cat-测试流程与治理" class="side-nav-item" onclick="setActive(this)">📊 测试流程与治理<span>1</span></a></nav>
       <div class="sidebar-footer">
-        生成时间 (UTC+8)<br>2026-09-17 00:00:07<br><br>
+        生成时间 (UTC+8)<br>2026-09-17 06:00:02<br><br>
         <span class="status-ok">AI 整理</span><br><br>
         数据来源<br>arXiv · Semantic Scholar<br>Papers With Code · GitHub<br><br>
         <a href="https://github.com/cey1117/ai-news">GitHub</a>
@@ -363,39 +363,39 @@
       <div class="main-header">
         <h1>AI + 软件测试 每日资讯</h1>
         <p class="subtitle">聚合 AI 驱动的用例生成、安全测试、程序分析、测试框架与工程、测试流程与治理、模糊测试、内核测试、测试验证、业界研究等领域最新动态</p>
-        <div class="update-time">📅 2026年9月17日星期四 00:00 · 共 24 条</div>
+        <div class="update-time">📅 2026年9月17日星期四 06:00 · 共 30 条</div>
       </div>
       
     <section class="featured">
       <h2 class="section-title">🔥 今日精选</h2>
       <div class="featured-grid">
         
+          <a href="https://www.semanticscholar.org/paper/cbada7878ccb15ae470fefec6988c7ec310e0f5a" target="_blank" rel="noopener" class="featured-card">
+            <span class="featured-cat" style="background:#dc2626">🛡️ 安全测试</span>
+            <h3>MCPSecBench: A Systematic Security Benchmark and Playground for Testing Model Context Protocols</h3>
+            <p>针对Model Context Protocol（MCP）提出系统化安全基准与测试平台，覆盖工具调用、权限、数据流等攻击面，能对各类MCP实现做标准化安全评测。随着MCP成为AI Agent接入外部工具的主流标准，其安全性却缺乏统一评测，该工作填补了这一空白。</p>
+            <div class="featured-meta">
+              <span>Semantic Scholar</span>
+              <span class="score score-high">9分</span>
+            </div>
+          </a>
+        
           <a href="https://github.com/google/oss-fuzz-gen" target="_blank" rel="noopener" class="featured-card">
             <span class="featured-cat" style="background:#b91c1c">💥 模糊测试</span>
             <h3>google/oss-fuzz-gen: LLM powered fuzzing via OSS-Fuzz</h3>
-            <p>Google 开源项目将大语言模型引入模糊测试流程，自动为开源项目生成和优化 fuzz 测试目标及初始语料，以发现内存安全等深层缺陷。它依托 OSS-Fuzz 的大规模基础设施，让 LLM 迭代生成候选 harness 并自动验证覆盖率，大幅降低了编写模糊测试的门槛，为海量开源代码提供可扩展的自动化漏洞挖掘能力。</p>
+            <p>谷歌发布的LLM驱动模糊测试工具，将大模型接入OSS-Fuzz流程，可自动为开源项目生成并优化Fuzz目标与测试用例，提升漏洞挖掘效率。它把大模型能力与既有的大规模模糊测试基础设施结合，代表了AI辅助Fuzzing的重要实践方向。</p>
             <div class="featured-meta">
               <span>GitHub</span>
               <span class="score score-high">9分</span>
             </div>
           </a>
         
-          <a href="https://github.com/qodo-ai/qodo-cover" target="_blank" rel="noopener" class="featured-card">
-            <span class="featured-cat" style="background:#7c3aed">🧪 用例生成</span>
-            <h3>qodo-ai/qodo-cover: Qodo-Cover: An AI-Powered Tool for Automated Test Generation and Code Coverage Enhancement!</h3>
-            <p>Qodo-Cover 是 Qodo 推出的 AI 自动化测试生成工具，能针对现有代码库自动产生单元测试并提升测试覆盖率。它结合大模型理解代码语义与分支逻辑，生成有针对性的测试用例，并可集成到 CI 流程，帮助团队在重构和迭代中快速补齐测试盲区，提升代码质量与回归安全性。</p>
-            <div class="featured-meta">
-              <span>GitHub</span>
-              <span class="score score-high">8分</span>
-            </div>
-          </a>
-        
-          <a href="https://github.com/GreyDGL/PentestGPT" target="_blank" rel="noopener" class="featured-card">
+          <a href="https://www.semanticscholar.org/paper/9e85ce8f1822105251870493e5326468fba18f0d" target="_blank" rel="noopener" class="featured-card">
             <span class="featured-cat" style="background:#dc2626">🛡️ 安全测试</span>
-            <h3>GreyDGL/PentestGPT: Automated Penetration Testing Agentic Framework Powered by Large Language Models</h3>
-            <p>PentestGPT 是基于大语言模型的自动化渗透测试框架，通过 LLM 推理来规划和执行渗透任务，把复杂攻击流程分解为可管理的子任务并跟踪进度。它面向真实渗透场景，帮助安全人员与红队提升效率，是 LLM 驱动攻防自动化方向被广泛引用的代表性开源项目。</p>
+            <h3>DoomArena: A framework for Testing AI Agents Against Evolving Security Threats</h3>
+            <p>一个用于测试AI Agent应对持续演变安全威胁的框架，构建可动态变化的对抗场景，评估Agent在提示注入、越权等攻击下的鲁棒性。它强调威胁环境的演化性，为AI Agent安全测试提供了更贴近真实攻防的评估方法。</p>
             <div class="featured-meta">
-              <span>GitHub</span>
+              <span>Semantic Scholar</span>
               <span class="score score-high">8分</span>
             </div>
           </a>
@@ -404,6 +404,154 @@
     </section>
   
       
+    <section class="cat-section" id="cat-安全测试">
+      <div class="cat-header">
+        <span class="cat-icon" style="background:#dc2626">🛡️</span>
+        <div>
+          <h3>安全测试</h3>
+          <span class="cat-desc">AI 漏洞检测、渗透测试、安全扫描 · 17条</span>
+        </div>
+      </div>
+      <div class="item-grid">
+        
+    <a href="https://www.semanticscholar.org/paper/cbada7878ccb15ae470fefec6988c7ec310e0f5a" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-high">9分</span>
+      </div>
+      <h4>MCPSecBench: A Systematic Security Benchmark and Playground for Testing Model Context Protocols</h4>
+      <p>针对Model Context Protocol（MCP）提出系统化安全基准与测试平台，覆盖工具调用、权限、数据流等攻击面，能对各类MCP实现做标准化安全评测。随着MCP成为AI Agent接入外部工具的主流标准，其安全性却缺乏统一评测，该工作填补了这一空白。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/9e85ce8f1822105251870493e5326468fba18f0d" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>DoomArena: A framework for Testing AI Agents Against Evolving Security Threats</h4>
+      <p>一个用于测试AI Agent应对持续演变安全威胁的框架，构建可动态变化的对抗场景，评估Agent在提示注入、越权等攻击下的鲁棒性。它强调威胁环境的演化性，为AI Agent安全测试提供了更贴近真实攻防的评估方法。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/29f3a3e0b9fa192b611ddc3695e2840e1a20b9e1" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>MCP Guardian: A Security-First Layer for Safeguarding MCP-Based AI System</h4>
+      <p>面向MCP架构AI系统的“安全优先”防护层，在工具调用链路中拦截与检测恶意请求，保护基于MCP的Agent系统。随着MCP生态快速扩张，如何在协议层面前置安全防护成为关键，该方案提供了可直接部署的守护机制。</p>
+    </a>
+    <a href="https://github.com/NVIDIA/garak" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>NVIDIA/garak: the LLM vulnerability scanner</h4>
+      <p>NVIDIA开源的LLM漏洞扫描器，内置多种探测模块，可对语言模型进行幻觉、越狱、提示注入、数据泄露等风险的系统化扫描，是当前较成熟的LLM红队测试工具之一，被广泛用于模型上线前的安全评估与加固。</p>
+    </a>
+    <a href="https://github.com/Tencent/AI-Infra-Guard" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>Tencent/AI-Infra-Guard: A full-stack AI Red Teaming platform</h4>
+      <p>腾讯开源的全栈AI红队测试平台，通过Agent扫描、技能扫描、MCP扫描、AI基础设施扫描和LLM越狱评估，系统性保障AI生态安全。覆盖面广，从模型、Agent到基础设施提供一体化的安全检测与评估能力。</p>
+    </a>
+    <a href="https://github.com/GreyDGL/PentestGPT" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>GreyDGL/PentestGPT: Automated Penetration Testing Agentic Framework Powered by Large Language Models</h4>
+      <p>基于大语言模型的自动化渗透测试智能体框架，将LLM用于渗透任务的分解、推理与执行辅助，让模型能像人类测试者一样逐步推进攻击流程。它是LLM赋能渗透测试的代表性开源项目，被广泛参考和二次开发。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/1a7fc5514a40a36003210799a7baffca8eb20e72" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>BlackIce: A Containerized Red Teaming Toolkit for AI Security Testing</h4>
+      <p>面向AI安全测试的容器化红队工具包，将多种攻击与测试能力打包为可复现的容器环境，便于对AI系统开展安全评估。容器化交付降低了红队测试的部署门槛，并显著提升了测试流程的可重复性与可移植性。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/407b6a1611ecc8b104d8c4af6c7bfd92d179f122" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>A Framework for Security Testing of Large Language Models</h4>
+      <p>提出针对大语言模型的安全测试框架，系统梳理并组织对LLM的安全测试维度与方法，用于发现模型在对抗场景下的安全弱点。该框架为LLM安全评估提供了结构化方法论，便于测试人员组织与复现测试。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/248ec6e66332c1964814285c494f890e86d20b70" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>Secure QA: AI-driven security testing and privacy-preserving frameworks in modern software quality engineering</h4>
+      <p>探讨现代软件质量工程中AI驱动的安全测试与隐私保护框架，将AI引入QA流程以提升安全测试能力，同时兼顾数据隐私。研究为在质量保障体系中落地AI安全测试、平衡检测能力与合规要求提供了框架思路。</p>
+    </a>
+    <a href="https://www.semanticscholar.org/paper/2b21005f6126c93e512697cdead221c883ce31d9" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>Automated Security Testing in DevOps Environments Using AI and ML</h4>
+      <p>研究在DevOps环境中利用AI与ML实现自动化安全测试，把机器学习引入持续集成流程以自动发现安全问题。方法旨在缓解传统安全测试无法跟上快速交付节奏的矛盾，让安全检测更早、更自动地嵌入开发流水线。</p>
+    </a>
+    <a href="https://github.com/NVIDIA/SkillSpector" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>NVIDIA/SkillSpector: Security scanner for AI agent skills</h4>
+      <p>NVIDIA推出的AI Agent技能安全扫描器，可在安装前检测Claude Code、Codex及MCP技能中的漏洞、恶意模式、提示注入、数据外泄与供应链风险。它为快速扩张的AI编程助手技能生态提供了前置安全把关能力。</p>
+    </a>
+    <a href="https://github.com/CyberStrikeus/CyberStrike" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>CyberStrikeus/CyberStrike: Open-source AI-powered offensive security harness</h4>
+      <p>开源AI驱动的进攻性安全测试框架，用于自动化渗透测试，将大模型能力编排进攻击流程，自动完成侦察、利用等环节。它降低了红队与渗透测试的操作门槛，让自动化攻击测试更易部署和复现。</p>
+    </a>
+    <a href="https://github.com/msoedov/agentic_security" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>msoedov/agentic_security: Agentic LLM Vulnerability Scanner / AI red teaming kit</h4>
+      <p>面向智能体与大模型的漏洞扫描与AI红队工具包，自动化探测LLM在Agent场景下的安全弱点。它帮助安全团队系统化开展红队测试，覆盖提示注入、工具滥用等Agent特有风险，适配多类大模型部署形态。</p>
+    </a>
+    <a href="https://github.com/GH05TCREW/pentestagent" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>GH05TCREW/pentestagent: PentestAgent is an AI agent framework for black-box security testing</h4>
+      <p>面向黑盒安全测试的AI Agent框架，支持漏洞赏金、红队和渗透测试工作流。它用智能体编排侦察、探测与利用等测试任务，将AI自动化引入真实攻防场景，提升渗透测试的效率与覆盖度。</p>
+    </a>
+    <a href="https://github.com/mrwadams/attackgen" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>mrwadams/attackgen: cybersecurity incident response testing tool</h4>
+      <p>基于大语言模型和MITRE ATT&amp;CK框架的网络安全事件响应测试工具，可根据用户选择的威胁行为者组织与本组织信息，自动生成定制化的应急响应演练场景。它帮助团队以低成本检验并提升事件响应能力。</p>
+    </a>
+    <a href="https://github.com/JoasASantos/NeuroSploit" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>JoasASantos/NeuroSploit: advanced, AI-powered penetration testing framework</h4>
+      <p>AI驱动的渗透测试框架，旨在自动化并增强进攻性安全操作的多个环节，将大模型能力嵌入攻击测试流程。它面向安全从业者提供更智能的测试编排与执行能力，提升渗透测试的自动化程度与效率。</p>
+    </a>
+    <a href="https://github.com/usestrix/strix" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>usestrix/strix: Open-source AI penetration testing tool to find and fix your app&#39;s vulnerabilities</h4>
+      <p>开源AI渗透测试工具，可自动发现并修复应用漏洞，面向开发者提供持续的AI驱动安全测试能力。它将漏洞检测与修复建议结合，让应用安全测试更易上手，适合嵌入日常开发流程做常态化安全扫描。</p>
+    </a>
+      </div>
+    </section>
     <section class="cat-section" id="cat-模糊测试">
       <div class="cat-header">
         <span class="cat-icon" style="background:#b91c1c">💥</span>
@@ -420,211 +568,59 @@
         <span class="score score-high">9分</span>
       </div>
       <h4>google/oss-fuzz-gen: LLM powered fuzzing via OSS-Fuzz</h4>
-      <p>Google 开源项目将大语言模型引入模糊测试流程，自动为开源项目生成和优化 fuzz 测试目标及初始语料，以发现内存安全等深层缺陷。它依托 OSS-Fuzz 的大规模基础设施，让 LLM 迭代生成候选 harness 并自动验证覆盖率，大幅降低了编写模糊测试的门槛，为海量开源代码提供可扩展的自动化漏洞挖掘能力。</p>
+      <p>谷歌发布的LLM驱动模糊测试工具，将大模型接入OSS-Fuzz流程，可自动为开源项目生成并优化Fuzz目标与测试用例，提升漏洞挖掘效率。它把大模型能力与既有的大规模模糊测试基础设施结合，代表了AI辅助Fuzzing的重要实践方向。</p>
     </a>
     <a href="https://github.com/cyberark/FuzzyAI" target="_blank" rel="noopener" class="item-card">
       <div class="item-top">
         <span class="item-source">GitHub</span>
-        <span class="score score-mid">7分</span>
+        <span class="score score-high">8分</span>
       </div>
       <h4>cyberark/FuzzyAI: A powerful tool for automated LLM fuzzing</h4>
-      <p>FuzzyAI 是 CyberArk 推出的自动化 LLM 模糊测试工具，帮助开发者和安全研究者识别并缓解大模型 API 中的越狱问题。它通过变异和生成对抗性提示来探测模型防护边界，系统化暴露潜在越狱向量，为 LLM 应用上线前的安全加固提供可重复的测试手段。</p>
+      <p>CyberArk开源的自动化LLM模糊测试工具，帮助开发者和安全研究者发现并缓解LLM API中的越狱漏洞。它通过自动化的对抗输入生成，系统性地探测模型的安全边界，为LLM安全加固提供了可复用的Fuzzing流程。</p>
     </a>
       </div>
     </section>
-    <section class="cat-section" id="cat-用例生成">
+    <section class="cat-section" id="cat-程序分析">
       <div class="cat-header">
-        <span class="cat-icon" style="background:#7c3aed">🧪</span>
+        <span class="cat-icon" style="background:#2563eb">🔍</span>
         <div>
-          <h3>用例生成</h3>
-          <span class="cat-desc">AI 生成测试用例、测试脚本 · 3条</span>
+          <h3>程序分析</h3>
+          <span class="cat-desc">AI 静态/动态分析、故障定位、根因分析 · 4条</span>
         </div>
       </div>
       <div class="item-grid">
         
-    <a href="https://github.com/qodo-ai/qodo-cover" target="_blank" rel="noopener" class="item-card">
+    <a href="https://www.semanticscholar.org/paper/010c5a972b59a7b9caf8819a614a047bc9ce7f2b" target="_blank" rel="noopener" class="item-card">
       <div class="item-top">
-        <span class="item-source">GitHub</span>
+        <span class="item-source">Semantic Scholar</span>
         <span class="score score-high">8分</span>
       </div>
-      <h4>qodo-ai/qodo-cover: Qodo-Cover: An AI-Powered Tool for Automated Test Generation and Code Coverage Enhancement!</h4>
-      <p>Qodo-Cover 是 Qodo 推出的 AI 自动化测试生成工具，能针对现有代码库自动产生单元测试并提升测试覆盖率。它结合大模型理解代码语义与分支逻辑，生成有针对性的测试用例，并可集成到 CI 流程，帮助团队在重构和迭代中快速补齐测试盲区，提升代码质量与回归安全性。</p>
+      <h4>LSAST: Enhancing Cybersecurity Through LLM-Supported Static Application Security Testing</h4>
+      <p>利用大语言模型增强静态应用安全测试（SAST）的方法，用LLM辅助识别代码中的安全漏洞，弥补传统SAST工具误报多、依赖固定规则的不足。研究展示了LLM在源代码安全分析中提升漏洞检测准确率的潜力与实现路径。</p>
     </a>
-    <a href="https://github.com/antiwork/shortest" target="_blank" rel="noopener" class="item-card">
+    <a href="https://www.semanticscholar.org/paper/019b1f5101e958646acc86cd35cae65467615276" target="_blank" rel="noopener" class="item-card">
       <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">7分</span>
-      </div>
-      <h4>antiwork/shortest: QA via natural language AI tests</h4>
-      <p>Shortest 让开发者用自然语言描述测试意图，由 AI 自动生成并执行端到端测试，实现“一句话写测试”的 QA 体验。它把 Playwright 等测试能力与 LLM 结合，简化用例编写和维护成本，适合在快速迭代的产品中补充回归测试，代表自然语言驱动测试的新方向。</p>
-    </a>
-    <a href="https://github.com/MGdaasLab/WHartTest" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">7分</span>
-      </div>
-      <h4>MGdaasLab/WHartTest: AI-driven test automation platform</h4>
-      <p>WHartTest 是一款 AI 驱动的测试自动化平台，实现从需求到可执行测试用例的自动化生成与管理。它利用大模型理解需求描述并转化为结构化测试用例，帮助测试团队减少手工编写成本、提升覆盖率，把需求、用例与执行串联起来，改善测试流程的自动化水平。</p>
-    </a>
-      </div>
-    </section>
-    <section class="cat-section" id="cat-安全测试">
-      <div class="cat-header">
-        <span class="cat-icon" style="background:#dc2626">🛡️</span>
-        <div>
-          <h3>安全测试</h3>
-          <span class="cat-desc">AI 漏洞检测、渗透测试、安全扫描 · 14条</span>
-        </div>
-      </div>
-      <div class="item-grid">
-        
-    <a href="https://github.com/GreyDGL/PentestGPT" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
+        <span class="item-source">Semantic Scholar</span>
         <span class="score score-high">8分</span>
       </div>
-      <h4>GreyDGL/PentestGPT: Automated Penetration Testing Agentic Framework Powered by Large Language Models</h4>
-      <p>PentestGPT 是基于大语言模型的自动化渗透测试框架，通过 LLM 推理来规划和执行渗透任务，把复杂攻击流程分解为可管理的子任务并跟踪进度。它面向真实渗透场景，帮助安全人员与红队提升效率，是 LLM 驱动攻防自动化方向被广泛引用的代表性开源项目。</p>
+      <h4>Can a Llama Be a Watchdog? Exploring Llama 3 and Code Llama for Static Application Security Testing</h4>
+      <p>探索用Llama 3和Code Llama做静态应用安全测试的可行性，比较开源大模型与传统SAST工具在漏洞识别上的表现。研究检验了开源代码大模型作为“看门狗”发现安全缺陷的能力与局限，为自建安全分析方案提供参考。</p>
     </a>
-    <a href="https://github.com/NVIDIA/garak" target="_blank" rel="noopener" class="item-card">
+    <a href="https://www.semanticscholar.org/paper/1f78887164a6feb8115710ae3e5be4695571ed5c" target="_blank" rel="noopener" class="item-card">
       <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-high">8分</span>
-      </div>
-      <h4>NVIDIA/garak: the LLM vulnerability scanner</h4>
-      <p>garak 是 NVIDIA 推出的 LLM 漏洞扫描器，专注于对语言模型进行系统性红队测试，检测提示注入、越狱、幻觉、数据泄露等风险。它内置大量探测器和攻击模式，可对多种模型与接口批量评估并输出可量化报告，已成为 LLM 安全评估领域较有影响力的开源工具。</p>
-    </a>
-    <a href="https://github.com/Tencent/AI-Infra-Guard" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-high">8分</span>
-      </div>
-      <h4>Tencent/AI-Infra-Guard: A full-stack AI Red Teaming platform</h4>
-      <p>腾讯开源的 AI-Infra-Guard 是一套全栈 AI 红队测试平台，覆盖 Agent 扫描、技能扫描、MCP 扫描、AI 基础设施扫描以及大模型越狱评估等能力。它面向 AI 生态的供应链与部署安全，帮助企业在引入智能体和大模型组件前评估配置与权限风险，提供一站式 AI 安全体检。</p>
-    </a>
-    <a href="https://github.com/usestrix/strix" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
+        <span class="item-source">Semantic Scholar</span>
         <span class="score score-mid">7分</span>
       </div>
-      <h4>usestrix/strix: Open-source AI penetration testing tool</h4>
-      <p>Strix 是一款开源的 AI 渗透测试工具，用智能体自动发现并修复应用漏洞。它模拟攻击者对应用进行探测，识别安全缺陷并给出修复建议，把 LLM 驱动的自动化能力引入日常安全测试流程，降低对专业渗透经验的依赖，适合团队在开发迭代中持续开展安全验证。</p>
+      <h4>Using ChatGPT as a Static Application Security Testing Tool</h4>
+      <p>研究将ChatGPT用作静态应用安全测试工具，评估其在识别代码漏洞上的实际表现，并与传统工具进行对比。结果揭示了通用大模型在代码安全分析中的能力边界、误报漏报特征及适用场景，为实践选型提供依据。</p>
     </a>
-    <a href="https://github.com/GH05TCREW/pentestagent" target="_blank" rel="noopener" class="item-card">
+    <a href="https://www.semanticscholar.org/paper/d07286fd40e4d464ed971ccd892d3808a1cd3c76" target="_blank" rel="noopener" class="item-card">
       <div class="item-top">
-        <span class="item-source">GitHub</span>
+        <span class="item-source">Semantic Scholar</span>
         <span class="score score-mid">7分</span>
       </div>
-      <h4>GH05TCREW/pentestagent: AI agent framework for black-box security testing</h4>
-      <p>PentestAgent 是面向黑盒安全测试的 AI 智能体框架，支持漏洞赏金、红队和渗透测试等工作流。它通过 LLM 编排侦察、探测与利用等环节，将攻击步骤自动化，帮助安全团队在授权范围内规模化开展测试，是智能体应用于攻防领域的一类代表项目。</p>
-    </a>
-    <a href="https://github.com/project-codeguard/rules" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">7分</span>
-      </div>
-      <h4>project-codeguard/rules: AI model-agnostic security framework and ruleset</h4>
-      <p>Project CodeGuard 是一个模型无关的 AI 安全框架和规则集，把“默认安全”的实践嵌入 AI 编码工作流，覆盖代码生成与审查环节。它提供核心安全规则、面向主流编码智能体的转换器以及用于校验规则遵循度的验证器，帮助团队在 AI 辅助编程中持续进行安全合规检查。</p>
-    </a>
-    <a href="https://github.com/JoasASantos/NeuroSploit" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">6分</span>
-      </div>
-      <h4>JoasASantos/NeuroSploit: AI-powered penetration testing framework</h4>
-      <p>NeuroSploit 是一款 AI 驱动的渗透测试框架，旨在自动化和增强各类进攻性安全操作。它借助大模型辅助侦察、漏洞探测与利用等环节，把 AI 能力引入渗透测试流程，帮助安全人员在授权场景下更高效地完成测评工作，是进攻性安全自动化的实用工具之一。</p>
-    </a>
-    <a href="https://github.com/mrwadams/attackgen" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">6分</span>
-      </div>
-      <h4>mrwadams/attackgen: cybersecurity incident response testing tool using LLMs and MITRE ATT&amp;CK</h4>
-      <p>AttackGen 是一款网络安全事件响应测试工具，利用大语言模型结合 MITRE ATT&amp;CK 框架，根据用户选择的威胁行为体组织和机构信息，自动生成量身定制的事件响应演练场景。它把威胁情报与 LLM 生成结合，帮助安全团队低成本开展贴近真实的应急演练。</p>
-    </a>
-    <a href="https://github.com/CyberStrikeus/CyberStrike" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">6分</span>
-      </div>
-      <h4>CyberStrikeus/CyberStrike: Open-source AI-powered offensive security harness</h4>
-      <p>CyberStrike 是一个开源的 AI 驱动进攻性安全工具链，用于自动化渗透测试。它把大模型能力封装为可编排的攻击流程，覆盖侦察、探测与利用等阶段，帮助安全团队在授权范围内规模化执行安全测试，代表了 AI 赋能红队作业的一类实践。</p>
-    </a>
-    <a href="https://github.com/NVIDIA/SkillSpector" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">6分</span>
-      </div>
-      <h4>NVIDIA/SkillSpector: Security scanner for AI agent skills</h4>
-      <p>SkillSpector 是 NVIDIA 推出的 AI 智能体技能安全扫描器，可在安装前检测 Claude Code、Codex 和 MCP 技能中的漏洞、恶意模式、提示注入、数据外泄和供应链风险。它把安全审查前置到智能体技能引入环节，帮助开发者规避来自第三方技能的安全威胁。</p>
-    </a>
-    <a href="https://github.com/msoedov/agentic_security" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">6分</span>
-      </div>
-      <h4>msoedov/agentic_security: Agentic LLM Vulnerability Scanner</h4>
-      <p>agentic_security 是一款智能体化的 LLM 漏洞扫描器与 AI 红队工具包，用于系统评估大模型和智能体应用的安全风险。它通过自动化探测识别提示注入、越狱等问题，为开发和运维团队提供可重复的安全测试手段，是 LLM 安全评估方向的实用开源工具。</p>
-    </a>
-    <a href="https://github.com/affaan-m/agentshield" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">6分</span>
-      </div>
-      <h4>affaan-m/agentshield: AI agent security scanner</h4>
-      <p>AgentShield 是一款 AI 智能体安全扫描器，可检测智能体配置、MCP 服务器和工具权限中的漏洞。它提供 CLI、GitHub Action、插件和 GitHub App 等多种集成方式，方便团队把智能体安全审查嵌入开发流程，降低因配置不当导致的权限滥用与安全风险。</p>
-    </a>
-    <a href="https://github.com/z3n70/Frida-Script-Runner" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">6分</span>
-      </div>
-      <h4>z3n70/Frida-Script-Runner: Web-based Frida framework with AI-assisted script generation</h4>
-      <p>Frida-Script-Runner 是一个面向 Android 与 iOS 的 Web 端 Frida 框架与工具集，用于移动渗透测试和动态分析，并提供 AI 辅助生成 Frida 脚本的能力。它降低了移动端 Hook 与动态调试脚本的编写门槛，帮助安全研究者更高效地开展移动应用安全评估。</p>
-    </a>
-    <a href="https://github.com/zhaoxuya520/reverse-skill" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-low">5分</span>
-      </div>
-      <h4>zhaoxuya520/reverse-skill: Reverse Engineering / Penetration Testing / Security Research Skill Router Pack</h4>
-      <p>reverse-skill 是一套面向逆向工程、授权渗透测试和安全研究的技能路由包，采用 AI 自动路由、按需自举工具链和自动进化经验库的机制，支持 Claude Code、Kiro、Cursor、Cline 等代码 AI 客户端。它把安全技能组织为可被 AI 调用的模块，方便组合使用。</p>
-    </a>
-      </div>
-    </section>
-    <section class="cat-section" id="cat-测试框架与工程">
-      <div class="cat-header">
-        <span class="cat-icon" style="background:#0891b2">🏗️</span>
-        <div>
-          <h3>测试框架与工程</h3>
-          <span class="cat-desc">AI 测试框架、自动化平台、CI/CD · 3条</span>
-        </div>
-      </div>
-      <div class="item-grid">
-        
-    <a href="https://github.com/TommyLemon/APIAuto" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-high">8分</span>
-      </div>
-      <h4>TommyLemon/APIAuto: HTTP API tool with ML no-code testing and AI assistant</h4>
-      <p>APIAuto 是一款敏捷开发下的接口测试与调试工具，支持零代码机器学习测试、AI 问答、自动生成代码与静态检查、生成文档及悬浮注释等能力。它已被腾讯、华为、SHEIN、工行等企业使用，把 AI 辅助融入 HTTP 接口的开发、测试与文档环节，提升接口质量与协作效率。</p>
-    </a>
-    <a href="https://github.com/IvanMurzak/Unity-MCP" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">6分</span>
-      </div>
-      <h4>IvanMurzak/Unity-MCP: AI Skills, MCP Tools, and CLI for Unity Engine</h4>
-      <p>Unity-MCP 为 Unity 引擎提供 AI 技能、MCP 工具和 CLI，构建了完整的 AI 开发与测试闭环。它能将任意 C# 方法通过一行代码转化为工具，并兼容 Claude Code、Gemini、Cursor 等客户端，让 AI 智能体驱动 Unity 中的自动化测试与开发操作，提升游戏开发效率。</p>
-    </a>
-    <a href="https://github.com/darrenhinde/OpenAgentsControl" target="_blank" rel="noopener" class="item-card">
-      <div class="item-top">
-        <span class="item-source">GitHub</span>
-        <span class="score score-mid">6分</span>
-      </div>
-      <h4>darrenhinde/OpenAgentsControl: AI agent framework for plan-first development workflows</h4>
-      <p>OpenAgentsControl 是一个“计划优先”的 AI 智能体框架，采用基于审批的执行流程，支持 TypeScript、Python、Go、Rust 等多语言，并内置自动测试、代码审查和验证能力。它面向 OpenCode 生态，把 AI 编码与自动化测试、审查结合，帮助团队在受控流程中引入智能体。</p>
+      <h4>ChatDL: An LLM-Based Defect Localization Approach for Software in IIoT Flexible Manufacturing</h4>
+      <p>面向工业物联网柔性制造软件的基于LLM的缺陷定位方法，利用大模型理解代码与故障信息，定位软件缺陷所在位置。研究将LLM缺陷定位能力引入IIoT软件场景，助力复杂工业软件的故障排查与定位。</p>
     </a>
       </div>
     </section>
@@ -641,10 +637,46 @@
     <a href="https://github.com/evidentlyai/evidently" target="_blank" rel="noopener" class="item-card">
       <div class="item-top">
         <span class="item-source">GitHub</span>
-        <span class="score score-mid">7分</span>
+        <span class="score score-high">8分</span>
       </div>
       <h4>evidentlyai/evidently: open-source ML and LLM observability framework</h4>
-      <p>Evidently 是开源的机器学习与大模型可观测性框架，提供 100 多种指标用于评估、测试和监控 AI 系统与数据管道，覆盖表格数据到生成式 AI 场景。它帮助团队在模型上线前后持续检测数据漂移、性能退化和质量问题，为 MLOps 中的测试验证提供量化支撑。</p>
+      <p>开源机器学习与大模型可观测性框架，提供100多项指标，用于评估、测试并监控AI系统与数据管道，覆盖表格数据到生成式AI。可用于模型质量与数据漂移的持续测试，是ML/LLM测试与监控的常用基础工具。</p>
+    </a>
+      </div>
+    </section>
+    <section class="cat-section" id="cat-测试框架与工程">
+      <div class="cat-header">
+        <span class="cat-icon" style="background:#0891b2">🏗️</span>
+        <div>
+          <h3>测试框架与工程</h3>
+          <span class="cat-desc">AI 测试框架、自动化平台、CI/CD · 3条</span>
+        </div>
+      </div>
+      <div class="item-grid">
+        
+    <a href="https://github.com/qodo-ai/qodo-cover" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-high">8分</span>
+      </div>
+      <h4>qodo-ai/qodo-cover: An AI-Powered Tool for Automated Test Generation and Code Coverage Enhancement</h4>
+      <p>Qodo推出的AI驱动自动化测试生成工具，专注自动生成测试用例并提升代码覆盖率。它结合大模型分析代码逻辑，自动补齐缺失测试，帮助开发团队提高测试覆盖率和缺陷发现能力，代表了AI生成测试的工程化实践。</p>
+    </a>
+    <a href="https://github.com/antiwork/shortest" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>antiwork/shortest: QA via natural language AI tests</h4>
+      <p>通过自然语言编写AI测试的QA工具，用自然语言描述即可生成并运行端到端测试，大幅降低测试编写门槛。它代表了AI驱动测试用例生成与执行的新交互方式，让非测试专业人员也能快速构建自动化测试。</p>
+    </a>
+    <a href="https://github.com/TommyLemon/APIAuto" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>TommyLemon/APIAuto: HTTP API tool with machine learning no-code testing and AI assistant</h4>
+      <p>腾讯、华为等企业使用的HTTP接口工具，集成机器学习零代码测试、AI问答、代码与静态检查生成、文档自动生成及悬浮注释等能力。它把AI助手嵌入接口测试与开发流程，显著提升接口测试与维护效率。</p>
     </a>
       </div>
     </section>
@@ -663,8 +695,48 @@
         <span class="item-source">GitHub</span>
         <span class="score score-mid">7分</span>
       </div>
-      <h4>scadastrangelove/awesome-ai-security-tools: A curated list of AI security tools</h4>
-      <p>这是一份精选的 AI 安全工具清单，汇集开源、研究与商业领域成果，涵盖自动分级、智能体安全、AI/ML 供应链、渗透智能体、AI 静态分析、LLM 模糊测试、威胁情报、SOC/SIEM 分级、逆向工程和 LLM 红队等方向，为安全从业者提供了解 AI 安全生态的导航式参考。</p>
+      <h4>scadastrangelove/awesome-ai-security-tools: A curated list of AI security and AI-assisted cybersecurity tools</h4>
+      <p>一份精选的AI安全与AI辅助网络安全工具清单，收录开源、研究与商业工具，涵盖自动分诊、智能体安全、AI供应链、渗透智能体、AI SAST、LLM驱动Fuzzing、威胁情报、逆向、LLM红队等方向，是了解该领域全景的实用索引。</p>
+    </a>
+      </div>
+    </section>
+    <section class="cat-section" id="cat-用例生成">
+      <div class="cat-header">
+        <span class="cat-icon" style="background:#7c3aed">🧪</span>
+        <div>
+          <h3>用例生成</h3>
+          <span class="cat-desc">AI 生成测试用例、测试脚本 · 1条</span>
+        </div>
+      </div>
+      <div class="item-grid">
+        
+    <a href="https://github.com/MGdaasLab/WHartTest" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">GitHub</span>
+        <span class="score score-mid">7分</span>
+      </div>
+      <h4>MGdaasLab/WHartTest: AI-driven test automation platform</h4>
+      <p>AI驱动的测试自动化平台，实现从需求到可执行测试用例的自动化生成与管理，帮助测试团队提升用例产出效率与覆盖率。它将需求理解、用例生成与管理打通，属于需求驱动的AI用例生成的落地实践。</p>
+    </a>
+      </div>
+    </section>
+    <section class="cat-section" id="cat-测试流程与治理">
+      <div class="cat-header">
+        <span class="cat-icon" style="background:#059669">📊</span>
+        <div>
+          <h3>测试流程与治理</h3>
+          <span class="cat-desc">AI 测试管理、流程优化、质量保障 · 1条</span>
+        </div>
+      </div>
+      <div class="item-grid">
+        
+    <a href="https://www.semanticscholar.org/paper/43185f30b8a19958a335879c4fb7b8eeb37584b8" target="_blank" rel="noopener" class="item-card">
+      <div class="item-top">
+        <span class="item-source">Semantic Scholar</span>
+        <span class="score score-mid">6分</span>
+      </div>
+      <h4>Legal, Policy, and Compliance Issues in Using AI for Security: Using Taiwan&#39;s Cybersecurity Management Act and Penetration Testing as Examples</h4>
+      <p>以台湾资安管理法与渗透测试为例，探讨在安全工作中使用AI所涉及的法规、政策与合规问题。研究为AI用于渗透测试等安全测试活动的合法边界、责任界定与治理机制提供了参考，填补了合规视角的空白。</p>
     </a>
       </div>
     </section>
